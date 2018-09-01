@@ -81,16 +81,17 @@ $(document).ready(function () {
         $("#panelPrimario").find(".dis-col-9").toggleClass('col-md-9 col-md-12');
         $("#div-paso-paso").toggleClass('col-md-12 col-md-7');
         $('#div-paso-paso').toggle();
-        var divpasopaso = $("#div-paso-paso")
+        var divpasopaso = $("#div-paso-paso");
+		var wh = $( window ).height() + 'px'; 
         if (divpasopaso.is(":visible")) {
             $('#tituloapp').css('height', "40px");
             $('#tituloapp').css('line-height', "40px");
             $('#procedimientos').css('height', "40px");
             $('#procedimientos').css('line-height', "40px");
-            $('#panelPrimario').css('height', "600px");
-            $('#div-ingreso-datos').css('height', "600px");
+            $('#panelPrimario').css('height', wh);
+            $('#div-ingreso-datos').css('height', wh);
             $('#div-ingreso-datos').css('overflow-y', "scroll");
-            $('#pestañas').css('height', "600px");
+            $('#pestañas').css('height', wh);
             $('#pestañas').css('overflow-y', "scroll");
             $('.right-proceso-rigid').show();
             $('.helpData').hide();
@@ -416,21 +417,23 @@ $(document).ready(function () {
 
 
     $("#clcd").on("click", function () {
-
-        var espesord = Newton();
-        var esp = (Math.ceil(espesord / 0.5) * 0.5).toFixed(2);
-        $("#d").val(espesord.toFixed(2));
-        $("#dr").val(esp);
-        iterarEspesor();
-        loadGraph7();
-        var altura = $(document).height();
-        $("html, body").animate({
-            scrollTop: altura + "px"
-        });
-        if(($('#trf_tmda').val() === "")&&($('#trf_tasa_cre').val() === "")&&($('#trf_per_dis').val() === "")&&($('#trf_direccionalidad').val() === "")&&($('#trf_espesor').val() === "")){
-            $(".datosESALS").hide();
-        } else {
-        $(".datosESALS").show();
+		var valid = $('#frmGeneral').valid();
+		if (valid){
+			var espesord = Newton();
+			var esp = (Math.ceil(espesord / 0.5) * 0.5).toFixed(2);
+			$("#d").val(espesord.toFixed(2));
+			$("#dr").val(esp);
+			iterarEspesor();
+			loadGraph7();
+			var altura = $(document).height();
+			$("html, body").animate({
+				scrollTop: altura + "px"
+			});
+			if(($('#trf_tmda').val() === "")&&($('#trf_tasa_cre').val() === "")&&($('#trf_per_dis').val() === "")&&($('#trf_direccionalidad').val() === "")&&($('#trf_espesor').val() === "")){
+				$(".datosESALS").hide();
+			} else {
+			$(".datosESALS").show();
+		}
     }
 
     });

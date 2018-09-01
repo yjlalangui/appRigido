@@ -121,15 +121,15 @@ $(document).ready(function () {
             $('#pestañas').css('overflow-y', "");
             $('.right-proceso-rigid').hide();
             $('.helpData').show();
-            $('.dis-col-9').css('height', "215px");
+            //$('.dis-col-9').css('height', "215px");
             
-            $('.mk').css('height', "165pxpx");
+            $('.mk').css('height', "165px");
             $('.mk1').css('height', "145px");
             $('.height-drenaje').css('height', "180px");
             $('.height-drenaje-body').css('height', "160px");
             $('.base_contenedor').css('height', "190px");
-            $('.coef_J').css('height', "134px");
-            $('.coef_J_body').css('height', "124px");
+            $('.coef_J').css('height', "234px");
+            $('.coef_J_body').css('height', "224px");
             $('.height-fac-PS').css('height', "230px");
             $('.height-fac-PS-head').css('height', "220px");
             $('.height-fac-PS-body').css('height', "200px");

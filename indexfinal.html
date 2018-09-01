@@ -965,71 +965,78 @@
 																			<strong>Coeficiente de transferencia de carga</strong>
 																		</div>
 																		<div class="panel-body form-horizontal coef_J_body" style="font-size: 10px; height: 224px;" >
-																			<div class="col-md-12">
-																				<div class="form-group">
-																					<table width="90%" align='center'>
-																						<tr>
-																							<td>
-																								Tipo de berma
-																							</td>
-																							<td>
-																								<select class="form-control" name="tipoberma" id="tipoberma" onchange="transfcarga()">
-																									<option>(Seleccione)</option>
-																									<option value="concreto">De concreto</option>
-																									<option value="asfalto">De asfálto</option>
-																								</select>
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>
-																								Dispositivos de carga
-																							</td>
-																							<td>
-																								<select class="form-control" name="dispcarga" id="dispcarga" onchange="transfcarga()">
-																									<option>(Seleccione)</option>
-																									<option value="si">Si</option>
-																									<option value="no">No</option>
-																								</select>
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>
-																								Tipo de pavimento
-																							</td>
-																							<td>
-																								<select class="form-control" name="tipopavimento" id="tipopavimento" onchange="transfcarga()">
-																									<option>(Seleccione)</option>
-																									<option value="no reforzado">No reforzado o reforzado con juntas</option>
-																									<option value="reforzado">Reforzado continuo</option>
-																								</select>
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>
-																								&nbsp;&nbsp;
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>
-																								Rango
-																							</td>
-																							<td>
-																								<input class="form-control form-control-sm" type="text" id="tcrango" disabled='true'>
+																			<div id="contenedor11" class="panel panel-default" style="height: 180px; ">
+																				
+																				<div class="panel-body height-drenaje-body" style="height: 180px;">
+																					<div class="col-md-12">
+																						<div class="form-group">
+																							<table width="90%" align='center'>
+																								<tr>
+																									<td>
+																										Tipo de berma
+																									</td>
+																									<td>
+																										<select class="form-control" name="tipoberma" id="tipoberma" onchange="transfcarga()">
+																											<option>(Seleccione)</option>
+																											<option value="concreto">De concreto</option>
+																											<option value="asfalto">De asfálto</option>
+																										</select>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										Dispositivos de carga
+																									</td>
+																									<td>
+																										<select class="form-control" name="dispcarga" id="dispcarga" onchange="transfcarga()">
+																											<option>(Seleccione)</option>
+																											<option value="si">Si</option>
+																											<option value="no">No</option>
+																										</select>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										Tipo de pavimento
+																									</td>
+																									<td>
+																										<select class="form-control" name="tipopavimento" id="tipopavimento" onchange="transfcarga()">
+																											<option>(Seleccione)</option>
+																											<option value="no reforzado">No reforzado o reforzado con juntas</option>
+																											<option value="reforzado">Reforzado continuo</option>
+																										</select>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										&nbsp;&nbsp;
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										Rango
+																									</td>
+																									<td>
+																										<input class="form-control form-control-sm" type="text" id="tcrango" disabled='true'>
 
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>
-																								Valor
-																							</td>
-																							<td>
-																								<input class="form-control form-control-sm numeric2" type="text" id="tcvalor">
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										Valor
+																									</td>
+																									<td>
+																										<input class="form-control form-control-sm numeric2" type="text" id="tcvalor">
 
-																							</td>
-																						</tr>
-																					</table>
+																									</td>
+																								</tr>
+																							</table>
+																						</div>
+																					</div>
 																				</div>
 																			</div>
+																			
+																			
 																		</div>
 																	</div>
 																	<!--END transferencia de carga-->
@@ -1040,45 +1047,52 @@
 																			<strong>Carpeta de hormigón</strong>
 																		</div>
 																		<div class="panel-body coef_J_body" style="font-size: 10px; height: 224px;" >
-																			<div class="col-md-12">
-																				<table width="90%" align='center'>
-																					<tr>
-																						<td>Tipo de agregado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																						</td>
-																						<td style="padding:0px">
-																							<select width="100%" name="tipoagregado" id="tipoagregado" onchange="modelastico()">
-																								<option>(Seleccione)</option>
-																								<option value="Grueso-ígneo">Grueso-ígneo</option>
-																								<option value="Grueso-Metamórfico">Grueso-Metamórfico</option>
-																								<option value="Grueso-Sedimentario">Grueso-Sedimentario</option>
-																								<option value="Sin información">Sin información</option>
-																							</select>
-																						</td>
-																					</tr>
-																					<tr>
-																						<td>Resistencia a la compresión (f'c) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																						</td>
-																						<td width="75px">
-																							<input class="form-control form-control-sm numeric2" type="text" id="fc" onchange="modelastico()">
-																						</td>
-																					</tr>
+																			<div id="contenedor11" class="panel panel-default" style="height: 180px; ">
+																				
+																				<div class="panel-body" style="">
+																					<div class="col-md-12">
+																						<table width="90%" align='center'>
+																							<tr>
+																								<td>Tipo de agregado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																								</td>
+																								<td style="padding:0px">
+																									<select width="100%" name="tipoagregado" id="tipoagregado" onchange="modelastico()">
+																										<option>(Seleccione)</option>
+																										<option value="Grueso-ígneo">Grueso-ígneo</option>
+																										<option value="Grueso-Metamórfico">Grueso-Metamórfico</option>
+																										<option value="Grueso-Sedimentario">Grueso-Sedimentario</option>
+																										<option value="Sin información">Sin información</option>
+																									</select>
+																								</td>
+																							</tr>
+																							<tr>
+																								<td>Resistencia a la compresión (f'c) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																								</td>
+																								<td width="75px">
+																									<input class="form-control form-control-sm numeric2" type="text" id="fc" onchange="modelastico()">
+																								</td>
+																							</tr>
 
-																					<tr>
-																						<td>Módulo de rotura (Sc) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																						</td>
-																						<td>
-																							<input class="form-control form-control-sm numeric2" type="text" id="Sc">
-																						</td>
-																					</tr>
-																					<tr>
-																						<td>Módulo elástico del concreto (Ec)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																						</td>
-																						<td>
-																							<input class="form-control form-control-sm" type="text" disabled='true' id="Ec">
-																						</td>
-																					</tr>
-																				</table>
+																							<tr>
+																								<td>Módulo de rotura (Sc) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																								</td>
+																								<td>
+																									<input class="form-control form-control-sm numeric2" type="text" id="Sc">
+																								</td>
+																							</tr>
+																							<tr>
+																								<td>Módulo elástico del concreto (Ec)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																								</td>
+																								<td>
+																									<input class="form-control form-control-sm" type="text" disabled='true' id="Ec">
+																								</td>
+																							</tr>
+																						</table>
+																					</div>
+																				</div>
 																			</div>
+																		
+																			
 
 																		</div>
 																	</div>

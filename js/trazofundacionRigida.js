@@ -32,9 +32,14 @@ function calcularyprofundidadrigida() {
         
         
     } else if (10 < fundacionrigida) {
-        alert("Valores entre 2 y 10");
+        alert("Este parámetro tiene un rango de valores entre 2 y 10 pies, valores superiores a 10 no tienen mayor incidencia en el cálculo por ese motivo se considera el módulo de reacción inicial.");
         $('#profrigida').val("")
-        $('#profunrigiday').val("")
+        $('#kfrsubrasante').val("")
+        $("#profrigida").prop("disabled", true);
+        $("#funrigida").prop("checked", false);
+        
+        
+        
         
     }
 

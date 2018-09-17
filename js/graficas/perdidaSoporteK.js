@@ -458,13 +458,21 @@ pointRadius: 2,
     var valorsoporte = parseFloat($('#valorLsoporte').val());
 
 
-    if ((0 <= valorsoporte) && (valorsoporte <= 1)) {
+    if ((0 <= valorsoporte) && (valorsoporte < 0.5)) {
+        valorsoporte = 0
         var ly = interpo(0, 1, valorsoporte, l0, l1)
         $("#ly").val(ly)
-    } else if ((1 < valorsoporte) && (valorsoporte <= 2)) {
+    } else if ((0.5 <= valorsoporte) && (valorsoporte < 1.5)) {
+        valorsoporte = 1
+        var ly = interpo(0, 1, valorsoporte, l0, l1)
+        $("#ly").val(ly)
+    }
+     else if ((1.5 <= valorsoporte) && (valorsoporte < 2.5)) {
+        valorsoporte = 2
         var ly = interpo(1, 2, valorsoporte, l1, l2)
         $("#ly").val(ly)
-    } else if ((2 < valorsoporte) && (valorsoporte <= 3)) {
+    } else if ((2.5 <= valorsoporte) && (valorsoporte <= 3)) {
+        valorsoporte = 3
         var ly = interpo(2, 3, valorsoporte, l2, l3)
         $("#ly").val(ly)
     }

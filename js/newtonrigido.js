@@ -16,6 +16,7 @@ $(document).ready(function () {
 });
 
 function f(x) {
+    
     var zr = parseFloat($('#desvest').val());
     var so = parseFloat($('#destandar').val());
     var w18 = parseFloat($('#numeroejesequi').val());
@@ -61,6 +62,7 @@ function abs_(x) {
 }
 
 var Newton = function () {
+    
     var iterations = 1000000;
     var x = 0;
 

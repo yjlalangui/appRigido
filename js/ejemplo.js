@@ -18,7 +18,7 @@ $(document).ready(function() {
         $("#tcvalor").val(3.2);
         materialsbs();
         $("#subbaseCBR").prop("checked", true);
-        $("#subbase-crc-td").text("CBR");
+        $("#subbase-crc-td").text("CBR (%)");
         $("#subbase-crc").val(45);
         parametrossubbase();
         $("#calidaddrenaje").val("Excelente (2 horas)");

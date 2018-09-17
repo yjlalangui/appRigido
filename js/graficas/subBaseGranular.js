@@ -547,7 +547,7 @@ function loadGraph1() {
     var txtebs = $('#subbase-crc-td').text();
     var bsgrafi = $('#dat-subbase-grafi').text();
 
-    if ((txtebs == "CBR")) {
+    if ((txtebs == "CBR (%)")) {
         $('#dat-subbase-grafi').val(2);
         if ((20 <= probs) && (probs <= 100)) {
             var grafcbrbs = polino8(188.19863898307, 6.36750660371035, 0.309705876512453, -0.0521250507736113, 0.00272890149062732, -0.0000719201496508504, 0.00000102561222137254, -0.00000000755693095946808, 0.000000000022590098628511, (probs - 20))

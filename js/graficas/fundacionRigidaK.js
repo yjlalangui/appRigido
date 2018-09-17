@@ -25,7 +25,7 @@ function loadGraph9() {
                     data: [{
                         x: 26,
                         y: -5,
-                        r: "Módulo resiliente de subrasante Mr(pci)"
+                        r: "Módulo resiliente de subrasante Mr(psi)"
                     }],
                     pointRadius: 0,
                     showLine: true,
@@ -102,6 +102,35 @@ function loadGraph9() {
                         x: 77,
                         y: -5,
                         r: "Módulo de reacción de subrasante K(pci)"
+                    }],
+                    pointRadius: 0,
+                    showLine: true,
+
+                    borderColor: [
+                        'rgba(0, 0, 0, 1)'
+                    ],
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                    ],
+                    pointBackgroundColor: [
+                        'rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)',
+                    ],
+                    borderWidth: 1.8,
+                    datalabels: {
+                        align: 'center',
+                        rotation: 0,
+                        color: 'rgba(0, 0, 0, 1)',
+                        font: {
+                            size: 10,
+                        },
+                    },
+
+                },
+                {
+                    data: [{
+                        x: 77,
+                        y: -6.5,
+                        r: "(modificado por la presencia de una fundación rígida cerca de la superficie)"
                     }],
                     pointRadius: 0,
                     showLine: true,
@@ -976,12 +1005,12 @@ function loadGraph9() {
     var kfrsub = (parseFloat($('#kfrsubrasante').val()));
     var kfrsubr = kfrsub.toFixed(2);
     var r1 = { x: document.getElementById("mrx").value, y: 0, r: "Mr" + " = " + document.getElementById("Modulor").value };
-    window.myChart9.data.datasets[21].data[0, 0, 0] = r1;
+    window.myChart9.data.datasets[22].data[0, 0, 0] = r1;
     var r2 = { x: document.getElementById("mrx").value, y: document.getElementById("profunrigiday").value, r: "Dsg" + " = " + document.getElementById("profrigida").value };
-    window.myChart9.data.datasets[21].data[1, 1, 1] = r2;
+    window.myChart9.data.datasets[22].data[1, 1, 1] = r2;
     var r3 = { x: document.getElementById("kfrx").value, y: document.getElementById("profunrigiday").value, r: "K" + " = " + document.getElementById("kredondeado").value };
-    window.myChart9.data.datasets[21].data[2, 2, 2] = r3;
+    window.myChart9.data.datasets[22].data[2, 2, 2] = r3;
     var r3 = { x: document.getElementById("kfrx").value, y: 0, r: "K" + " = " + kfrsubr };
-    window.myChart9.data.datasets[21].data[3, 3, 3] = r3;
+    window.myChart9.data.datasets[22].data[3, 3, 3] = r3;
     window.myChart9.update();
 }

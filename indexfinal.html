@@ -86,7 +86,7 @@
 												<div class="col-md-12">
 
 													<div class="panel with-nav-tabs">
-														<div class="col-md-12">
+														<div align="right" style="margin-right: 12px;float: right;">
 															<ul class="nav nav-pills navbar-right">
 																<li>
 																	<div class="btnRigidoEjemplo">
@@ -205,7 +205,7 @@
 																		</div>
 																	</div>
 																</div>
-																<div class="tab-pane fade row flex-row" id="variablesentrada">
+																<div class="tab-pane fade row flex-row" id="variablesentrada" action=""> 
 
 																	<!--Parámetros de diseño-->
 																	<div id="contenedor1" class="panel panel-default" style="height: auto;">
@@ -266,11 +266,11 @@
 																					<div id="contenedor21" class="panel-heading">
 																						<strong>Serviciabilidad</strong>
 																					</div>
-																					<div style="font-size: 10px; height: 145px;" class="panel-body form-horizontal" width="90%" align='center'>
+																					<div style="font-size: 10px; height: 145px;" class="panel-body form-horizontal" width="100%" align='center'>
 																							<table style="font-size: 10px">
 																								<tr>
 																									<td>
-																											Inicial (pi)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																											Inicial - pi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 																									</td>
 																									<td>
 																											<input class="form-control form-control-sm numeric2 required" type='text' name='pinicial' id='pinicial' placeholder="Ingrese valor"
@@ -325,10 +325,10 @@
 																								</tr>
 																								<tr>
 																									<td>
-																											Final (pf)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																											Final - pf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 																									</td>
 																									<td>
-																											<input class="form-control form-control-sm numeric2" type='text' name='pfinal' id='pfinal' placeholder="Ingrese valor" onkeyup="serviciabilidadrig(); copyPfRigid()">
+																											<input class="form-control form-control-sm numeric2 required" type='text' name='pfinal' id='pfinal' placeholder="Ingrese valor" onkeyup="serviciabilidadrig(); copyPfRigid()">
 																									</td>
 																									<td>
 																											&nbsp;&nbsp;&nbsp;
@@ -377,9 +377,9 @@
 																										</td>
 																								</tr>
 																								<tr>
-																									<td>Índice (Δpsi)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+																									<td>Índice - Δpsi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 																									<td>
-																											<input class="form-control form-control-sm" type='text' name='deltapsi' id='deltapsi' disabled='true'>
+																											<input name='deltapsi' id='deltapsi' class="form-control form-control-sm required" type='text'  disabled='true'>
 																									</td>
 																									<td>
 																											&nbsp;&nbsp;&nbsp;
@@ -405,32 +405,32 @@
 																					</div>
 
 																					<div style="font-size: 10px; height: 145px;" class="panel-body">
-																						<div class="form-group">
-																							<table width="100%" align='center'>
+																						<div id="form_confiabilidad" class="form-group">
+																							<table >
 																								<tr>
 																									<td>
 																										Factor de confiabilidad
 																									</td>
 																									<td>
-																										<select class="form-control" name="factorc" id="factorc" onchange="factorconfia()">
-																											<option>Confiabilidad (R)</option>
-																											<option value="-0.000">50% </option>
-																											<option value="-0.253">60% </option>
-																											<option value="-0.524">70% </option>
-																											<option value="-0.841">80% </option>
-																											<option value="-1.037">85% </option>
-																											<option value="-1.282">90% </option>
-																											<option value="-1.340">91% </option>
-																											<option value="-1.405">92% </option>
-																											<option value="-1.476">93% </option>
-																											<option value="-1.555">94% </option>
-																											<option value="-1.645">95% </option>
-																											<option value="-1.751">96% </option>
-																											<option value="-1.881">97% </option>
-																											<option value="-2.054">98% </option>
-																											<option value="-2.327">99% </option>
-																											<option value="-3.090">99.9% </option>
-																											<option value="-3.750">99.99% </option>
+																										<select name="factorc" id="factorc" class="form-control required" onchange="factorconfia()">
+																											<option>Confiabilidad - R (%)</option>
+																											<option value="-0.000">50%</option>
+																											<option value="-0.253">60%</option>
+																											<option value="-0.524">70%</option>
+																											<option value="-0.841">80%</option>
+																											<option value="-1.037">85%</option>
+																											<option value="-1.282">90%</option>
+																											<option value="-1.340">91%</option>
+																											<option value="-1.405">92%</option>
+																											<option value="-1.476">93%</option>
+																											<option value="-1.555">94%</option>
+																											<option value="-1.645">95%</option>
+																											<option value="-1.751">96%</option>
+																											<option value="-1.881">97%</option>
+																											<option value="-2.054">98%</option>
+																											<option value="-2.327">99%</option>
+																											<option value="-3.090">99.9%</option>
+																											<option value="-3.750">99.99%</option>
 																										</select>
 																									</td>
 																									<td>
@@ -537,11 +537,11 @@
 																									</td>
 																								</tr>
 																								<tr>
-																									<td>
-																										Desviación normal estándar (Zr)
+																									<td style="width:150px">
+																										Desviación normal estándar - Zr
 																									</td>
 																									<td>
-																										<input id="desvest" class="form-control form-control-sm" type="text" disabled='true'>
+																										<input id="desvest" name="desvest" class="form-control form-control-sm" type="text" disabled='true'>
 																										<div style="display:none">
 																											<input id="procentajeconfiabilidad" class="form-control form-control-sm" type="text" disabled='true'>
 																										</div>
@@ -554,11 +554,11 @@
 																								</tr>
 																								<tr>
 																									<td>
-																										Desviación estándar (So)
+																										Desviación estándar - So
 																									</td>
 
 																									<td>
-																										<input class="form-control form-control-sm numeric2" type="text" placeholder="Ingrese valor" id="destandar">
+																										<input id="destandar" name="destandar" class="form-control form-control-sm numeric2 required" type="text" placeholder="Ingrese valor">
 																									</td>
 																									<td>
 																											&nbsp;&nbsp;&nbsp;
@@ -629,7 +629,7 @@
 																					<div  class="panel-body mk1" style="height: 145px;">
 																						<section style="font-size: 10px;" class="col-md-12">
 
-																							<table width="90%" align='center'>
+																							<table width="100%" align='center'>
 																								<tr>
 																									<td>Número de ejes equivalentes
 																										(ESAL´S)
@@ -638,7 +638,7 @@
 																										&nbsp;&nbsp;
 																									</td>
 																									<td>
-																										<input class="form-control form-control-sm numeric2 numeroejesequi" id="numeroejesequi" type="text" placeholder="Ingrese valor">
+																										<input id="numeroejesequi" name="numeroejesequi" class="form-control form-control-sm numeric2 numeroejesequi required"  type="text" placeholder="Ingrese valor">
 																									</td>
 
 																								</tr>
@@ -681,12 +681,12 @@
 																		<div id="contenedor2" class="panel-heading">
 																			<strong>Parámetros de Subbase</strong>
 																		</div>
-																		<div style="font-size: 10px;" class="panel-body">
+																		<div style="font-size: 10px;" class="panel-body fila-2-principal_reducida">
 
 
 																			<!--Parámetros mecánicos de Subbase-->
-																			<div class="col-md-6 basepadd dis-col-6 base_contenedor" style="height: 190px;">
-																				<section id="contenedor11" class="panel panel-default" style="height: 180px; ">
+																			<div class="col-md-6 basepadd dis-col-6 base_contenedor">
+																				<section id="contenedor11" class="panel panel-default">
 																					<div id="contenedor21" class="panel-heading">
 																						<strong>Propiedades mecánicas de la capa</strong>
 																						<a id="parametroSubbase" href="#grafica-sbs-granular">
@@ -694,7 +694,7 @@
 																						</a>
 																					</div>
 
-																					<div style="height: 160px;" class="panel-body" width="90%" align='left'>
+																					<div class="panel-body fila-2-secundario_reducida" width="100%" align='left'>
 																						<section id="propmecanicas-subbase">
 																							<div id="tipomaterialsubbase">
 																								<div id="materialsubbasegranular" class="tip-mat-basegra">
@@ -726,22 +726,22 @@
 																								</div>
 																							</div>
 
-																							<table class="table-responsive" width="90%" align='center'>
+																							<table class="table-responsive" width="100%" align='center'>
 																								<tr id="subbase-crc-tr">
-																									<td id="subbase-crc-td">(Seleccionar propiedad)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+																									<td id="subbase-crc-td" style="width:185px">(Seleccionar propiedad)</td>
 																									<td>
-																										<input class="form-control form-control-sm numeric2" type='text' id='subbase-crc' placeholder="Ingrese valor" onchange="parametrossubbase(); loadGraph2(); loadGraph4(); calcularyprofundidadrigida(); datosgraf()">
+																										<input id='subbase-crc' name="subbase-crc" class="form-control form-control-sm numeric2 required" type='text'  placeholder="Ingrese valor" onchange="parametrossubbase(); loadGraph2(); loadGraph4(); calcularyprofundidadrigida(); datosgraf()">
 																									</td>
 																								</tr>
 																								<tr>
-																									<td style="width:140px">Coeficiente estructural (a<SUB>2</SUB>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+																									<td>Coeficiente estructural - a<SUB>2</SUB></td>
 																									<td>
 																										<input class="form-control form-control-sm" type='text' name='subbasea2' id='subbasea2' disabled='true' onchange="loadGraph2();">
 																									</td>
 																								</tr>
 
 																								<tr>
-																									<td>Módulo resiliente de subbase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+																									<td>Módulo resiliente de subbase - Mb (psi)</td>
 																									<td>
 																										<input class="form-control form-control-sm" type='text' name='subbaseMb' id='subbaseMb' disabled='true'>
 																									</td>
@@ -762,8 +762,8 @@
 																					</div>
 																				</section>
 																			</div>
-																			<div class="col-md-6 basepadd dis-col-6 base_contenedor" style="height: 190px;">
-																				<div id="contenedor11" class="panel panel-default height-drenaje" style="height: 180px; ">
+																			<div class="col-md-6 basepadd dis-col-6 base_contenedor">
+																				<div id="contenedor11" class="panel panel-default height-drenaje">
 																					<div id="contenedor21" class="panel-heading">
 
 																						<strong>Drenaje</strong>
@@ -771,17 +771,17 @@
 																							<span id="fa-arrow-circle-right" class="fa fa-arrow-circle-right right-proceso-rigid" style="color:white"></span>
 																						</a>
 																					</div>
-																					<div class="panel-body height-drenaje-body" style="height: 160px;">
+																					<div class="panel-body height-drenaje-body fila-2-secundario_reducida">
 
 																						<!--DRENAJE SUBBASE-->
 																						<section id="parametrosdrenaje">
 
 																							<div id="drenajesubbase">
 																								<table width="100%" align='center'>
-																									<tr>
-																										<td style="width:220px;"> Calidad del drenaje&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+																									<tr title="Calidad del drenaje">
+																										<td style="width:220px;"> Calidad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 																										<td style="width:210px;">
-																											<select id="calidaddrenaje" class="form-control" onchange="calcdrenajesubbase();">
+																											<select id="calidaddrenaje" name="calidaddrenaje" class="form-control required" onchange="calcdrenajesubbase();">
 																												<option>(Seleccione)</option>
 																												<option>Excelente (2 horas)</option>
 																												<option>Buena ( 1 día)</option>
@@ -932,8 +932,8 @@
 																									</tr>
 
 																									<tr>
-																										<td style="width:220px;">Porcentaje de exposición
-																											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																										<td style="width:220px;">Porcentaje de exposición (%)
+																											
 																										</td>
 																										<td style="width:210px;">
 																											<input class="form-control form-control-sm numeric2" type='text' name='subbasehumedad' id='subbasehumedad' placeholder="Ingrese valor"
@@ -942,7 +942,7 @@
 																									</tr>
 																									<tr>
 																										<td style="width:220px;">
-																											Coeficiente de drenaje (m<SUB>2</SUB>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+																											Coeficiente de drenaje - m<SUB>2</SUB></td>
 																										<td style="width:210px;">
 																											<input class="form-control form-control-sm" type='text' name='subbasem2' id='subbasem2' disabled='true'>
 																										</td>
@@ -960,23 +960,25 @@
 																	<!--END Parámetros de SubBase-->
 
 																	<!--Coeficiente de transferencia-->
-																	<div id="contenedor1" class="panel panel-default col-md-3 dis-col-3 coef_J" style="height: 234px;">
+																	<div id="contenedor1" class="panel panel-default col-md-3 dis-col-3 coef_J">
 																		<div id="contenedor2" class="panel-heading">
 																			<strong>Coeficiente de transferencia de carga</strong>
 																		</div>
-																		<div class="panel-body form-horizontal coef_J_body" style="font-size: 10px; height: 224px;" >
-																			<div id="contenedor11" class="panel panel-default" style="height: 180px; ">
-																				
-																				<div class="panel-body height-drenaje-body" style="height: 180px;">
+																		<div class="panel-body form-horizontal coef_J_body fila-2-principal_reducida" style="font-size: 10px;" >
+																			<div id="contenedor11" class="panel panel-default">
+																				<div id="contenedor21" class="panel-heading">
+																					<strong>Parámetros</strong>
+																				</div>
+																				<div class="panel-body height-drenaje-body fila-2-secundario_reducida">
 																					<div class="col-md-12">
 																						<div class="form-group">
-																							<table width="90%" align='center'>
+																							<table width="100%" align='center'>
 																								<tr>
-																									<td>
+																									<td style="width:120px">
 																										Tipo de berma
 																									</td>
 																									<td>
-																										<select class="form-control" name="tipoberma" id="tipoberma" onchange="transfcarga()">
+																										<select name="tipoberma" id="tipoberma" class="form-control required"  onchange="transfcarga()">
 																											<option>(Seleccione)</option>
 																											<option value="concreto">De concreto</option>
 																											<option value="asfalto">De asfálto</option>
@@ -988,7 +990,7 @@
 																										Dispositivos de carga
 																									</td>
 																									<td>
-																										<select class="form-control" name="dispcarga" id="dispcarga" onchange="transfcarga()">
+																										<select name="dispcarga" id="dispcarga" class="form-control required" onchange="transfcarga()">
 																											<option>(Seleccione)</option>
 																											<option value="si">Si</option>
 																											<option value="no">No</option>
@@ -1000,7 +1002,7 @@
 																										Tipo de pavimento
 																									</td>
 																									<td>
-																										<select class="form-control" name="tipopavimento" id="tipopavimento" onchange="transfcarga()">
+																										<select name="tipopavimento" id="tipopavimento" class="form-control required" onchange="transfcarga()">
 																											<option>(Seleccione)</option>
 																											<option value="no reforzado">No reforzado o reforzado con juntas</option>
 																											<option value="reforzado">Reforzado continuo</option>
@@ -1041,54 +1043,56 @@
 																	</div>
 																	<!--END transferencia de carga-->
 
-																	<!--Carpeta de hormigón -->
-																	<div id="contenedor1" class="panel panel-default col-md-3 dis-col-3 coef_J" style="height: 234px;">
+																	<!--Losa de hormigón -->
+																	<div id="contenedor1" class="panel panel-default col-md-3 dis-col-3 coef_J">
 																		<div id="contenedor2" class="panel-heading">
-																			<strong>Carpeta de hormigón</strong>
+																			<strong>Losa de hormigón</strong>
 																		</div>
-																		<div class="panel-body coef_J_body" style="font-size: 10px; height: 224px;" >
-																			<div id="contenedor11" class="panel panel-default" style="height: 180px; ">
-																				
-																				<div class="panel-body" style="">
-																					<div class="col-md-12">
-																						<table width="90%" align='center'>
+																		<div class="panel-body coef_J_body fila-2-principal_reducida" style="font-size: 10px;" >
+																			<div id="contenedor11" class="panel panel-default">
+																				<div id="contenedor21" class="panel-heading">
+																					<strong>Parámetros</strong>
+																				</div>
+																				<div class="panel-body fila-2-secundario_reducida">
+																					
+																						<table width="100%" align='center'>
 																							<tr>
-																								<td>Tipo de agregado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																								<td style="width:205px">Tipo de agregado
 																								</td>
-																								<td style="padding:0px">
-																									<select width="100%" name="tipoagregado" id="tipoagregado" onchange="modelastico()">
+																								<td style="padding:0px; width: 85px">
+																									<select  name="tipoagregado" id="tipoagregado" class="form-control required" onchange="modelastico()">
 																										<option>(Seleccione)</option>
 																										<option value="Grueso-ígneo">Grueso-ígneo</option>
-																										<option value="Grueso-Metamórfico">Grueso-Metamórfico</option>
-																										<option value="Grueso-Sedimentario">Grueso-Sedimentario</option>
+																										<option value="Grueso-metamórfico">Grueso-metamórfico</option>
+																										<option value="Grueso-sedimentario">Grueso-sedimentario</option>
 																										<option value="Sin información">Sin información</option>
 																									</select>
 																								</td>
 																							</tr>
 																							<tr>
-																								<td>Resistencia a la compresión (f'c) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																								<td>Resistencia a la compresión - f'c (kg/cm<sup>2</sup>)  
 																								</td>
-																								<td width="75px">
-																									<input class="form-control form-control-sm numeric2" type="text" id="fc" onchange="modelastico()">
+																								<td >
+																									<input name="fc" id="fc" class="form-control form-control-sm numeric2 required" type="text" id="fc" onchange="modelastico()">
 																								</td>
 																							</tr>
 
 																							<tr>
-																								<td>Módulo de rotura (Sc) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																								<td>Módulo de rotura - Sc 
 																								</td>
 																								<td>
-																									<input class="form-control form-control-sm numeric2" type="text" id="Sc">
+																									<input name="Sc" id="Sc" class="form-control form-control-sm numeric2 required" type="text" >
 																								</td>
 																							</tr>
 																							<tr>
-																								<td>Módulo elástico del concreto (Ec)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																								<td>Módulo elástico del concreto - Ec (psi)
 																								</td>
 																								<td>
 																									<input class="form-control form-control-sm" type="text" disabled='true' id="Ec">
 																								</td>
 																							</tr>
 																						</table>
-																					</div>
+																					
 																				</div>
 																			</div>
 																		
@@ -1101,11 +1105,11 @@
 
 																	<!--Subrasante-->
 
-																	<div id="contenedor1" class="panel panel-default col-md-9 dis-col-9">
+																	<div id="contenedor1" class="panel panel-default col-md-9 dis-col-9 col-subrasante" style="height: auto;">
 																		<div id="contenedor2" class="panel-heading">
 																			<strong>Parámetros de Subrasante</strong>
 																		</div>
-																		<div style="font-size: 10px;" class="panel-body">
+																		<div style="font-size: 10px;" class="panel-body fila-2-principal">
 
 																			<!--Efecto fundación rígida-->
 																			<div class="mrpadd col-md-4  dis-col-4" style="height: 230px;">
@@ -1117,15 +1121,14 @@
 																					<div class="panel-body" style="height: 90px;">
 																						<section id="moduloressubrasante">
 																							<div class="col-md-12">
-																								<table width="90%" align='center'>
+																								<table width="100%" align='center'>
 																									<tr id="subrasantetr">
-																										<td id="subrasantetd">CBR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+																										<td id="subrasantetd" style="width:130px">CBR (%)</td>
 																										<td>
-																											<input class="form-control form-control-sm numeric2" type='text' id='datosubrasante' placeholder="Ingrese valor" onchange="calcmoduloresiliente(); loadGraph4();  calcularyprofundidadrigida(); datosgraf()">
+																											<input name='datosubrasante' id='datosubrasante' class="form-control form-control-sm numeric2 required" type='text' placeholder="Ingrese valor" onchange="calcmoduloresiliente(); loadGraph4();  calcularyprofundidadrigida(); datosgraf()">
 																										</td>
 																										<tr>
-																											<td>Módulo resiliente
-																												(Mr)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																											<td>Módulo resiliente - Mr (psi)
 																											</td>
 																											<td>
 																												<input class="form-control form-control-sm numeric2" type='text' name='Modulor' id='Modulor' placeholder="Ingrese valor"
@@ -1142,22 +1145,114 @@
 
 																				</div>
 
-																				<div id="contenedor11" class="panel panel-default fundaRigida" style="display:none; height: 110px;" width="90%" align='center'>
+																				<div id="contenedor11" class="panel panel-default" style=" height: 110px;" width="90%" align='center'>
+																					<div id="contenedor1" class="panel panel-default col-md-12 cuadro_autor" >
+																						<br>    
+																						<div id="cuadro_autor" class="panel-body" style="height: 85.5px">
+																								<p>
+																									<strong>Descripción:</strong> Diseño de pavimentos
+																									rígidos
+																								</p>
+																								<p>
+																									<strong>Autores:</strong> Garcia, Y.; Quiñones, S.;
+																									Lalangui, Y.
+																								</p>
+																							</div>
+																						</div>
+																				</div>
+																			</div>
+
+																			<!--Modulo de reaacion K-->
+																			<div class="mrpadd col-md-4  dis-col-4" style="height: 230px;">
+																				<div id="contenedor11" class="panel panel-default" style="height: 220px;">
+																					<!--Módulo de reacción-->
+																					<div id="contenedor21" class="panel-heading">
+																						<strong>Módulo de reacción K</strong>
+																						<a id="parametroK" href="#ReaccionCompuestoK">
+																							<span id="fa-arrow-circle-right" class="fa fa-arrow-circle-right right-proceso-rigid" style="color:white"></span>
+																						</a>
+																					</div>
+																					<div id="mreaccionsubrasante" class="panel-body col-md-12 dis-col-12" style="height: 200px;" width="100%" align='center'>
+																						
+																								<table>
+																									<tr id="espesorsubbasetr">
+																										<td id="espesorsubbasetd" style="width:150px">Espesor de subbase (pulg)
+																										</td>
+																										<td>
+																											<input name='espesorsubbase' id='espesorsubbase' class="form-control form-control-sm integer required" type='text' placeholder="Ingrese valor" onchange="loadGraph4(); copyk(); finalk(); loadGraph6(); calcularyprofundidadrigida(); datosgraf(); loadGraph9();">
+																										</td>
+																										<td style="display:none">
+																											<input class="form-control form-control-sm" type='text' id='espesorsubbasegraf' disabled='true'>
+																										</td>
+																									</tr>
+																									<tr id="moduloreacciontr">
+																										<td id="moduloreacciontd">Módulo resiliente de - Mr (psi)
+																										</td>
+																										<td>
+																											<input class="form-control form-control-sm" type='text' id='moduloresiliente' onchange="loadGraph4()" disabled='true'>
+																										</td>
+																										<td style="display:none">
+																											<input class="form-control form-control-sm" type='text' id='moduloresilientegraf' disabled='true'>
+																										</td>
+																										<td style="display:none">
+																											<input class="form-control form-control-sm" type='text' id='lt' disabled='true'>
+																										</td>
+																									</tr>
+																									<tr id="modulorsubbasetr">
+																										<td id="modulorsubbasetd">Módulo resiliente - Mb (psi)</td>
+																										<td>
+																											<input class="form-control form-control-sm" type='text' id='moduloresilientesubbase' onchange="loadGraph4()" disabled='true'>
+																										</td>
+																										<td style="display:none">
+																											<input class="form-control form-control-sm" type='text' id='moduloresilientesubbasegraf' disabled='true'>
+																											<input class="form-control form-control-sm" type='text' id='moduloresilientesubbasegrafrevisar' disabled='true'>
+																										</td>
+																									</tr>
+																									<tr>
+																										<td>Módulo de reacción - K (pci)
+																										</td>
+																										<td>
+																											<input class="form-control form-control-sm" type='text' name='kredondeado' id='kredondeado' disabled='true'>
+																										</td>
+																										<td style="display:none">
+																											<input class="form-control form-control-sm" type='text' name='ksubrasante' id='ksubrasante' disabled='true'>
+																										</td>
+																									</tr>
+
+																								</table>
+																								<br>
+																								<input type="checkbox" name="funrigida" id="funrigida">Considerar profundidad del subsuelo de una fundación rigida&nbsp;&nbsp;&nbsp;
+
+																								<input style="display:none" class="form-control form-control-sm" type='text' id='mrx' disabled='true'>
+
+																								<input style="display:none" class="form-control form-control-sm" type="text" id="usoK" disabled='true'>
+																								<input style="display:none" class="form-control form-control-sm" type="text" id="kfinal" disabled='true'>
+																								<br>
+																							
+																						
+																					</div>
+																				</div>
+																			</div>
+
+
+																			<!--Factor de perdida de soporte-->
+																			<div class="mrpadd col-md-4  dis-col-4 height-fac-PS" style="height: 230px;">
+																				<div id="contenedor11" class="panel panel-default fundaRigida" style=" height: 85px;" width="90%" align='center'>
 																					<div id="contenedor21" class="panel-heading">
 																						<strong>Efecto fundación rígida</strong>
 																						<a id="parametroFundacionRigida" href="#fundacioRigida">
 																							<span id="fa-arrow-circle-right" class="fa fa-arrow-circle-right right-proceso-rigid" style="color:white"></span>
 																						</a>
 																					</div>
-
-																					<div class="panel-body" style="height: 90px;">
-
-																						<div class="col-md-12 dis-col-12">
-
-																							<table width="90%" align='center'>
+																				
+																					<div class="panel-body" style="height: 65px;">
+																				
+																						
+																				
+																							<table width="100%" align='center'>
 																								<tr id="trprofunrigida">
-																									<td style="width:130px">
-																										Profundidad de fundación rigida (pulg)
+																									<td style="width:150px">
+																										Profundidad de fundación (pies)
 																									</td>
 																									<td>
 																										<input class="form-control form-control-sm" type='text' id='profrigida' placeholder="Ingrese valor" disabled='true' onchange="calcularyprofundidadrigida(); datosgraf(); loadGraph9(); copyk(); loadGraph6(); finalk()">
@@ -1172,93 +1267,12 @@
 																							</table>
 																							<input style="display:none" class="form-control form-control-sm" type="text" id='profunrigiday'>
 																							<input style="display:none" class="form-control form-control-sm" type='text' id='kfrx' disabled='true'>
-
-																						</div>
+																				
+																						
 																					</div>
 																				</div>
-
-
-																			</div>
-
-																			<!--Modulo de reaacion K-->
-																			<div class="mrpadd col-md-4  dis-col-4" style="height: 230px;">
-																				<div id="contenedor11" class="panel panel-default" style="height: 220px;">
-																					<!--Módulo de reacción-->
-																					<div id="contenedor21" class="panel-heading">
-																						<strong>Módulo de reacción K</strong>
-																						<a id="parametroK" href="#ReaccionCompuestoK">
-																							<span id="fa-arrow-circle-right" class="fa fa-arrow-circle-right right-proceso-rigid" style="color:white"></span>
-																						</a>
-																					</div>
-																					<div class="panel-body" style="height: 200px;" width="90%" align='center'>
-																						<section id="mreaccionsubrasante">
-
-																							<div class="col-md-12 dis-col-12">
-																								<input type="checkbox" name="funrigida" id="funrigida">Considerar profundidad del subsuelo de una fundación rigida&nbsp;&nbsp;&nbsp;
-
-																								<table>
-																									<tr id="espesorsubbasetr">
-																										<td id="espesorsubbasetd">Espesor de subbase (pulg)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																										</td>
-																										<td>
-																											<input class="form-control form-control-sm integer" type='text' id='espesorsubbase' placeholder="Ingrese valor" onchange="loadGraph4(); copyk(); finalk()">
-																										</td>
-																										<td style="display:none">
-																											<input class="form-control form-control-sm" type='text' id='espesorsubbasegraf' disabled='true'>
-																										</td>
-																									</tr>
-																									<tr id="moduloreacciontr">
-																										<td id="moduloreacciontd">Módulo resiliente de
-																											subrasante (Mr)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																										</td>
-																										<td>
-																											<input class="form-control form-control-sm" type='text' id='moduloresiliente' onchange="loadGraph4()" disabled='true'>
-																										</td>
-																										<td style="display:none">
-																											<input class="form-control form-control-sm" type='text' id='moduloresilientegraf' disabled='true'>
-																										</td>
-																										<td style="display:none">
-																											<input class="form-control form-control-sm" type='text' id='lt' disabled='true'>
-																										</td>
-																									</tr>
-																									<tr id="modulorsubbasetr">
-																										<td id="modulorsubbasetd">Módulo resiliente de subbase (Mb)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-																										<td>
-																											<input class="form-control form-control-sm" type='text' id='moduloresilientesubbase' onchange="loadGraph4()" disabled='true'>
-																										</td>
-																										<td style="display:none">
-																											<input class="form-control form-control-sm" type='text' id='moduloresilientesubbasegraf' disabled='true'>
-																											<input class="form-control form-control-sm" type='text' id='moduloresilientesubbasegrafrevisar' disabled='true'>
-																										</td>
-																									</tr>
-																									<tr>
-																										<td>Módulo de reacción (K)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																										</td>
-																										<td>
-																											<input class="form-control form-control-sm" type='text' name='kredondeado' id='kredondeado' disabled='true'>
-																										</td>
-																										<td style="display:none">
-																											<input class="form-control form-control-sm" type='text' name='ksubrasante' id='ksubrasante' disabled='true'>
-																										</td>
-																									</tr>
-
-																								</table>
-
-																								<input style="display:none" class="form-control form-control-sm" type='text' id='mrx' disabled='true'>
-
-																								<input style="display:none" class="form-control form-control-sm" type="text" id="usoK" disabled='true'>
-																								<input style="display:none" class="form-control form-control-sm" type="text" id="kfinal" disabled='true'>
-																								<br>
-																							</div>
-																						</section>
-																					</div>
-																				</div>
-																			</div>
-
-
-																			<!--Factor de perdida de soporte-->
-																			<div class="mrpadd col-md-4  dis-col-4 height-fac-PS" style="height: 230px;">
-																				<div id="contenedor11" class="panel panel-default height-fac-PS-head" style="height: 220px;" width="90%" align='center'>
+																			
+																				<div id="contenedor11" class="panel panel-default" style="height: 135px;" width="90%" align='center'>
 																					<div id="contenedor21" class="panel-heading">
 																						<strong>Factor de pérdida de soporte</strong>
 																						<a id="parametroPerdidaSoporte" href="#perdidasorporte">
@@ -1266,16 +1280,16 @@
 																						</a>
 																					</div>
 
-																					<div class="panel-body col-md-12 dis-col-12 height-fac-PS-body" style="height: 200px;">
-																						<br>
+																					<div class="panel-body col-md-12 dis-col-12" style="height: 115px;">
+																						
 
 																						<table>
 																							<tr>
-																								<td>
+																								<td style="width: 150px">
 																									Tipo de Subbase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 																								</td>
 																								<td>
-																									<select id="materialsubbase1" class="form-control" onchange="perdidasorporte(); loadGraph6(); finalk()">
+																									<select name="materialsubbase1" id="materialsubbase1" class="form-control required" onchange="perdidasorporte(); loadGraph6(); finalk()">
 																										<option></option>
 																										<option>Bases granulares tratadas con cemento</option>
 																										<option>Sub-bases tratadas con cemento</option>
@@ -1302,15 +1316,14 @@
 																									Pérdida de soporte (L)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 																								</td>
 																								<td>
-																									<input class="form-control form-control-sm numeric2" type="text" id="valorLsoporte" onchange="loadGraph6()" </td>
+																									<input name="valorLsoporte" id="valorLsoporte" class="form-control form-control-sm numeric2 required" type="text" onchange="loadGraph6()" </td>
 																									<td style="display:none">
 																										<input class="form-control form-control-sm" type="text" id="ly">
 																									</td>
 																							</tr>
 
 																							<tr>
-																								<td>Módulo de reacción corregido
-																									(Kcorr)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																								<td>Módulo de reacción (Kcorr)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 																								</td>
 																								<td>
 																									<input class="form-control form-control-sm" type="text" name='Kcorr' id='Kcorr' disabled='true'>
@@ -1327,20 +1340,8 @@
 																	</div>
 																	<!--Resultados-->
 																	<div class="panel panel-default col-md-3 dis-col-3" style="padding:0px; ">
-																			<div id="contenedor1" class="panel panel-default col-md-12 cuadro_autor" style="height: 135.5px">
-																				<br>    
-																				<div id="cuadro_autor" class="panel-body">
-																						<p>
-																							<strong>Descripción:</strong> Diseño de pavimentos
-																							rígidos
-																						</p>
-																						<p>
-																							<strong>Autores:</strong> Garcia, Y.; Quiñones, S.;
-																							Lalangui, Y.
-																						</p>
-																					</div>
-																				</div>
-																		<div id="contenedor1" class="panel panel-default col-md-12" style="height: 135.5px">
+																			<!--poner botones de procedimientos e imprimir-->
+																		<div id="contenedor1" class="panel panel-default col-md-12" style="height: 134px">
 																			<div id="contenedor2" class="panel-heading">
 																				<strong>Resultados</strong>
 																				<a id="parametroResultados" href="#EspesorFinal">
@@ -1350,10 +1351,10 @@
 																			<div style="font-size: 10px;" class="panel-body" >
 																				<!--ESPESOR-->
 																				<div style="height: 93.5px">
-																				<table id="espesorigido" width="90%" align='center'>
+																				<table id="espesorigido" width="100%" align='center'>
 																					<tr>
 																						<td>
-																							Espesor de losa de concreto
+																							Espesor de losa de concreto (in)
 																						</td>
 																						<td>
 																							<input type="text" id="d" disabled="disabled">
@@ -1361,7 +1362,7 @@
 																					</tr>
 																					<tr>
 																						<td>
-																							Espesor de losa de concreto (redondeada)
+																							Espesor de losa redondeado (in)
 																						</td>
 																						<td>
 																							<input type="text" id="dr" disabled="disabled">
@@ -1381,6 +1382,16 @@
 																				</table>
 																			</div>
 																				<!--END ESPESOR-->
+																			</div>
+																		</div>
+																		<div id="contenedor1" class="panel panel-default col-md-12" style="height: 130px">
+																			<div class="col-md-12 cuadro_autor" style="text-align: center; vertical-align: middle; font-family: arial; height: 129px">
+																				<br><br>
+																				
+																				<input id="btnPaso" style="display:none" type="button" value="Procedimiento" class="btn btn-warning btn-radius btn-sm ">
+																				<button id="reporte" style="display:none" type="button" class="btn btn-warning btn-radius btn-sm" onclick="imprimir1()">
+																					<i class="fa fa-file-text"></i>&nbsp;Imprimir </button>
+		
 																			</div>
 																		</div>
 																		
@@ -1408,13 +1419,7 @@
 																		</div>
 																	</div>
 																	<!--END Subrasante-->
-																	<div class="col-md-12" style="text-align: right; font-family: arial">
-																		<br>
-																		<input id="btnPaso" type="button" value="Procedimiento" class="btn btn-warning btn-radius btn-sm ">
-																		<button id="reporte" type="button" class="btn btn-warning btn-radius btn-sm" onclick="imprimir1()">
-																			<i class="fa fa-file-text"></i>&nbsp;Imprimir </button>
-
-																	</div>
+																	
 
 
 																</div>
@@ -1445,9 +1450,6 @@
 															<div class="col-md-12" style="text-align: right; font-family: arial">
 																<ul class="nav nav-pills navbar-right">
 																	<li>
-
-																	</li>
-																	<li>
 																		<div class="liReporteUsuario">
 
 																			<button id="reporteUsuario" type="button" class="btn btn-warning btn-radius btn-sm " onclick="imprimir()">
@@ -1455,6 +1457,13 @@
 
 																		</div>
 																	</li>
+																	<li>
+																		<div>
+																						
+																				<button id="salirProcedimientos" type="button" class="btn btn-warning btn-radius btn-sm "  >Salir&nbsp;<i class="fa fa-close"></i>  </button>
+																					
+																		</div>
+																	</li>  
 																</ul>
 															</div>
 
@@ -1491,113 +1500,116 @@
 																	<!--DATOS DE EJES EQUIVALENTES-->
 																	<div class="tab-pane fade in active row flex-row " id="tabEjesEquivalentes">
 																		<div id="contenedor1" class="panel panel-default resultados">
-
-																			<div id="contenedor2" class="panel-heading">
-																				<a href="#parametroTrafico">
+																			<a href="#parametroTrafico">
+																				<div id="contenedor2" class="panel-heading">																				
 																					<span style="text-align: left" id="fa-arrow-circle-left"  class="fa fa-arrow-circle-left" style="color:white"></span>&nbsp;&nbsp;&nbsp;
-																				</a>
-																				<strong>Cálculo del número de ejes equivalentes ESAL´S</strong>
-																			</div>
-
+																					<strong>Cálculo del número de ejes equivalentes ESAL´S</strong>
+																				</div>
+																		    </a>
 
 																			<!-- TABLA CALCULO EJES EQUIVALENTES-->
-																			<div class="panel-body">
+																			<div id="resultadosTrafico" class="panel-body" style="background: rgba(255,255,255,1)">
 
-																				<div id="resultadosTrafico" class="tab-content">
-																					<table style="display:none" id="esalsTabla" border="1" cellspacing=0 class="table table-borderless table-hover table-responsive table-bordered table-condensed datosESALS ">
-																						<thead>
-																							<tr>
+																				    <section>
+																						<div class="tab-content">
+																							<p id="noCalcula_ESALS" style="text-align: center; display:none">No se ha realizado ningun cálculo</p>
+																							<table style="display:none; color:black" id="esalsTabla" border="1" cellspacing=0 class="table table-borderless table-hover table-responsive table-bordered table-condensed table-editable datosESALS ">
+																								<thead>
+																									<tr>
 
-																								<th rowspan="2">
-																										Tipo de vehículo
-																								   
-																								</th>
-																								<th colspan="4">
-																										Configuración de ejes
-																									
-																								</th>
-																								<th colspan="4">
-																										Peso por eje
-																									
-																								</th>
-																								<th rowspan="2">
-																										% de vehículos
-																									
-																								</th>
-																								<th colspan="4">
-																										Factor de equivalencia de carga
-																								</th>
-																								<th rowspan="2">
-																										Factor camión
-																									
-																								</th>
-																								<th rowspan="2">
-																										ESAL'S
-																									</th>
-																							</tr>
-																							<tr>
-																								<td>
-																										Eje 1
-																								</td>
-																								<td>
-																										Eje 2
-																								</td>
-																								<td>
-																										Eje 3
-																								</td>
-																								<td>
-																										Eje 4
-																								</td>
-																								<td>
-																										Eje 1
-																								</td>
-																								<td>
-																										Eje 2
-																								</td>
-																								<td>
-																										Eje 3
-																								</td>
-																								<td>
-																										Eje 4
-																								</td>
-																								<td>
-																										Eje 1
-																								</td>
-																								<td>
-																										Eje 2
-																								</td>
-																								<td>
-																										Eje 3
-																								</td>
-																								<td>
-																										Eje 4
-																								</td>
-																							</tr>
+																										<th rowspan="2">
+																												Tipo de vehículo
+																										
+																										</th>
+																										<th colspan="4">
+																												Configuración de ejes
+																											
+																										</th>
+																										<th colspan="4">
+																												Peso por eje
+																											
+																										</th>
+																										<th rowspan="2">
+																												% de vehículos
+																											
+																										</th>
+																										<th colspan="4">
+																												Factor de equivalencia de carga
+																										</th>
+																										<th rowspan="2">
+																												Factor camión
+																											
+																										</th>
+																										<th rowspan="2">
+																												ESAL'S
+																											</th>
+																									</tr>
+																									<tr>
+																										<td>
+																												Eje 1
+																										</td>
+																										<td>
+																												Eje 2
+																										</td>
+																										<td>
+																												Eje 3
+																										</td>
+																										<td>
+																												Eje 4
+																										</td>
+																										<td>
+																												Eje 1
+																										</td>
+																										<td>
+																												Eje 2
+																										</td>
+																										<td>
+																												Eje 3
+																										</td>
+																										<td>
+																												Eje 4
+																										</td>
+																										<td>
+																												Eje 1
+																										</td>
+																										<td>
+																												Eje 2
+																										</td>
+																										<td>
+																												Eje 3
+																										</td>
+																										<td>
+																												Eje 4
+																										</td>
+																									</tr>
 
 
-																						</thead>
-																						<tbody>
-																						</tbody>
-																						<tfoot>
-																							<tr>
-																								<td colspan="15">
-																									Σ ESAL´S
-																								</td>
-																								<td id="suma_esals_rigid">
+																								</thead>
+																								<tbody>
+																								</tbody>
+																								<tfoot>
+																									<tr>
+																										<td colspan="15">
+																											Σ ESAL´S
+																										</td>
+																										<td id="suma_esals_rigid">
 
-																								</td>
-																							</tr>
+																										</td>
+																									</tr>
 
-																						</tfoot>
-																					</table>
-																					<br>
-																					<label style="display:none">Número de Ejes Equivalentes</label>
-																					<input style="display:none" class="numeroejesequi" type="text" disabled="false">
-
-																					<!--Para mostrar tabla de quivalencias-->
-																					<div id="resultadoequivalencia">
-																					</div>
-																				</div>
+																								</tfoot>
+																							</table>
+																							
+																							<br>
+																							<label style="display:none">Número de Ejes Equivalentes</label>
+																							<input style="display:none" class="numeroejesequi" type="text" disabled="false">
+																						</div>
+																					</section>
+																						<!--Para mostrar tabla de quivalencias-->
+																					<section>
+																						<div id="resultadoequivalencia" class="tab-content col-md-12" style="color:black">
+																						</div>
+																					</section>
 																			</div>
 																		</div>
 																	</div>
@@ -1645,7 +1657,7 @@
 																											5 - 25
 																										</th>
 																										<th class="Por_25" style="width:25px;">
-																											25
+																											> 25
 																										</th>
 																									</tr>
 																								</thead>
@@ -1753,16 +1765,16 @@
 																											del pavimento a nivel
 																											de humedad próximos
 																											a la saturación y
-																											el coficiente de
-																											drenaje
+																											el coeficiente de
+																											drenaje. Para porcentajes mayores a 25% no es necesaria la interpolación
 																										</p>
 																									</td>
 																								</tr>
 																								<tr style="text-align : center;">
-																									<th>
+																									<td>
 																										<p id="proceso1"></p>
 																										<p id="proceso2"></p>
-																									</th>
+																									</td>
 																								</tr>
 																							</table>
 																						</div>
@@ -2014,19 +2026,23 @@
 							<form id="frmTraficoEq" action="">
 								<table>
 									<tr>
-										<td>Tráfico medio
-											diario
-											anual
-											(TMDA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<td style="width:210px">Tráfico medio diario anual (veh/día)
 										</td>
 										<td>
 											<input id="trf_tmda" name="trf_tmda" class="form-control form-control-sm integer required" type="text" placeholder="Ingrese valor (veh/día)">
+										</td>
+										<td rowspan="6" style="font-size:16px; width:140px">
+												
+										</td>
+										<td rowspan="6" style="font-size:14px; width:210px;">
+											<p style="font-size:14px; text-align: center; width:210px; border: orange 2px solid; border-radius: 5px">Los valores de peso por eje pueden ser modificados a los valores que se dispongan</p>
+
 										</td>
 									</tr>
 									<tr>
 										<td>Tasa de crecimiento
 											vehicular
-											(r)
+											(%)
 										</td>
 										<td>
 											<input id="trf_tasa_cre" name="trf_tasa_cre" class="form-control form-control-sm numeric2 required" type="text" placeholder="Ingrese valor (%)" onkeyup="restrictionPorcent()"> </td>
@@ -2034,7 +2050,7 @@
 									</tr>
 									<tr>
 										<td>Periodo de
-											diseño
+											diseño (años)
 										</td>
 										<td>
 											<input id="trf_per_dis" name="trf_per_dis" class="form-control form-control-sm integer required" type="text" placeholder="Ingrese valor (Años)"> </td>
@@ -2042,7 +2058,7 @@
 									</tr>
 									<tr>
 										<td>Direccionalidad
-											(D)
+											(%)
 										</td>
 										<td>
 											<input id="trf_direccionalidad" name="trf_direccionalidad" class="form-control form-control-sm integer required" type="text"
@@ -2052,8 +2068,7 @@
 									
 									<tr>
 										<td>Serviciabilidad
-											final
-											(Pt)
+											final - pt
 										</td>
 										<td>
 											<select id="trf_pt" name="trf_pt" class="form-control form-control-sm required" placeholder="Ingrese valor">
@@ -2066,7 +2081,7 @@
 
 									</tr>
 									<tr>
-										<td>Espesor (D)
+										<td>Espesor - D
 										</td>
 										<td>
 											<select id="trf_espesor" name="trf_espesor" class="form-control form-control-sm required" placeholder="Ingrese valor">
@@ -2096,15 +2111,24 @@
 						<table id="clasfvehiculos" class="table table-borderless table-hover table-responsive table-bordered table-condensed " border="5">
 							<thead>
 								<tr>
-									<th colspan="2" width="80px">
+									<th colspan="2" rowspan="2" width="80px">
 										Tipo de vehículo
 									</th>
-									<th colspan="2">
+									<th colspan="2" rowspan="2">
 										Descripción
 									</th>
-									<th width="30px" height="40px">
-										Porcentaje de vehiculo
+									<th width="15px" height="40px" rowspan="2">
+										% de flota vehicular
 									</th>
+									<th colspan="4">
+										Peso por eje (kips)
+									</th>
+								</tr>
+								<tr>
+									<th>Eje1</th>
+									<th>Eje2</th>
+									<th>Eje3</th>
+									<th>Eje4</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -2118,40 +2142,20 @@
 		<!--End myModalvehiculos-->
     </div>
 
-    <div id="ReporteCaratula_rigid" style="margin-bottom: 0px; display:none">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h2 style="text-align: center">Laboratorio virtual de pavimentos</h2>
-        <h2 style="text-align: center">Reporte de cálculos del software para la estimación de espesores de capas de pavimentos rígidos por el método AASHTO
-            1998
-        </h2>
+	<div id="ReporteCaratula_rigid" style="margin-bottom: 0px; display:none">
+		<div  style="width :auto; height :auto; position: absolute ; top:40%;">
+			<h2 style="text-align: center">Laboratorio virtual de pavimentos</h2>
+			<h2 style="text-align: center">Reporte de cálculos del software para la estimación de espesores de capas de pavimentos rígidos por el método AASHTO
+				1998
+			</h2>
+		</div>
 
     </div>
 
     <div id="ReporteDeclaracion_rigid" style="margin-bottom: 0px; display:none">
         <p style="font-size: 18px; font-weight: bold">Renuncia</p>
-        <p style="font-size: 16px; text-align : justify;">El software de Diseño de espesores de capas de pavimentos rígidos por el método AASHTO 1998 (BETA) se difunde bajo
-            el patrocinio de la Titulación de Ingeniería Civil, en interés al mejor aprendizaje de diseño de pavimentos rígidos.
+        <p style="font-size: 16px; text-align : justify;">El software de diseño de espesores de capas de pavimentos rígidos por el método AASHTO 1998 (Versión BETA). Se difunde bajo
+            el patrocinio del Grupo de Investigacion en Ingeniería Vial de la Titulación de Ingeniería Civil, en interés de mejorar el aprendizaje de diseño de pavimentos rígidos.
             La Universidad Técnica Particular de Loja no asume ninguna responsabilidad por su contenido o uso. Este documento
             no constituye un estándar, especificación o regulación, pues únicamente tiene fines académicos; así los nombres
             de los elaboradores pueden aparecer en este software solo porque se consideran esenciales para el objetivo de
@@ -2278,35 +2282,35 @@
                     Parámetros de tráfico
                 </td>
             </tr>
-            <tr>
+            <tr class="datosESALS">
                 <td style=" font-size: 16px">
                     <p id="txtTMDA_rigid"></p>
                 </td>
 
             </tr>
-            <tr>
+            <tr class="datosESALS">
                 <td style=" font-size: 16px">
                     <p id="txt_r_rigid"></p>
                 </td>
             </tr>
-            <tr>
+            <tr class="datosESALS">
                 <td style=" font-size: 16px">
                     <p id="txtPD_rigid"></p>
                 </td>
             </tr>
-            <tr>
+            <tr class="datosESALS">
                 <td style=" font-size: 16px">
                     <p id="txtD_rigid"></p>
                 </td>
             </tr>
 
             
-            <tr>
+            <tr class="datosESALS">
                 <td style=" font-size: 16px">
                     <p id="txt_ptt_rigid"></p>
                 </td>
             </tr>
-            <tr>
+            <tr class="datosESALS">
                 <td style=" font-size: 16px">
                     <p id="txt_Espesor_rigid"></p>
                 </td>
@@ -2593,12 +2597,12 @@
 
     <!-- TITULO PRINCIPAL -->
     <div id="titulo_principal_reporte_rigid" style="margin-bottom: 0px; display:none " class='page-break-after'>
-        <h2 style="text-align: center">Gráficas y Procedimientos</h2>
+        <h2 style="text-align: center">Gráficas y procedimientos</h2>
 
         <h3 style="text-align: center" class="datosESALS">
             Cálculo de número de ejes equivalentes ESAL´S
         </h3>
-            <p style="text-align: justify" class="datosESALS"> La determinación del valor de ESAL´S está en función de parámetros como el tráfico medio diario anual (TMDA), porcentaje de direccionalidad (A), porcentaje de flota vehicular (B), tasa de crecimiento vehicular (r), periodo de diseño (N). Además, se estiman los factores de equivalencia (Fe) correspondiente a cada tipo de vehículo en función de la serviciabilidad final (pt), y un espesor considerado inicialmente, y usando la siguiente ecuación se obtienen los valores de ESAL´S.</p>
+            <p style="text-align: justify" class="datosESALS"> La determinación del valor de ESAL´S está en función de parámetros como el tráfico medio diario anual (TMDA), porcentaje de direccionalidad (A), porcentaje de flota vehicular (B), tasa de crecimiento vehicular (r), periodo de diseño (N). Se estiman los factores de equivalencia (Fe) correspondiente a cada tipo de vehículo en función de la serviciabilidad final (pt), y un espesor asumido inicialmente, y usando la siguiente ecuación se obtienen los valores de ESAL´S.</p>
             <p style="text-align: center" class="datosESALS">𝑁 = TMDA × A/100 × B/100 × 365 × ((1+r)^N)−1)/(ln(1+r)) × Fe</p>
             
             <p style="text-align: center; font-size: 14px" class="datosESALS">Tabla 1. Valores de factor de equivalencia y ESAL´S obtenidos</p>
@@ -2613,15 +2617,15 @@
             <strong>Coeficiente de drenaje</strong>
         </p>
         <p id="explicacionDrenaje" style="text-align: justify"></p>
-        <p style="text-align: center; font-size: 14px">Tabla 2. Coeficiente de drenaje</p>
+        <p id="table_drenaje_subbase" style="text-align: center; font-size: 14px"></p>
     </div>
 
     <!-- TITULO PARÁMETROS DE SUBBASE -->
     <div id="titulo_graficaSubbase_reporte_rigid" style="margin-bottom: 0px; display:none; width: 100% " class='page-break-after'>
         <p style="text-align: center; font-size: 18px">
-            <strong>Coeficiente estructural y módulo resiliente</strong>
+            <strong>Coeficiente estructural y módulo resiliente de la subbase</strong>
         </p>
-        <p style="font-size: 16px; text-align: justify">Para la determinación de estos parámetros existen tres ábacos diferentes dependiendo del material, estos permiten obtener los valores mencionados en función de algún parámetro mecánico del material.</p>
+        <p style="font-size: 16px; text-align: justify">Para la determinación de estos parámetros existen tres ábacos diferentes dependiendo del material, estos permiten obtener el coeficiente estructural y el módulo resiliente de la subbase.</p>
         <p id="print_PropiedadSubBase_rigid" style="font-size: 16px; text-align: justify"></p>
         <img style="width: 100%" id="copy_carta_subbase_rigid">
         <p style="font-size: 14px; text-align: center">Figura 1. Ábaco de diseño para parámetros de subbase</p>
@@ -2631,22 +2635,22 @@
     <!-- TITULO PARÁMETROS DE SUBRASANTE -->
     <div id="titulo_graficaSubRasante_reporte_rigid" style="margin-bottom: 0px; display:none; width: 100% " class='page-break-after'>
         <p style="text-align: center; font-size: 20px">
-            <strong>Parámetros de subbase</strong>
+            <strong>Parámetros de la subrasante</strong>
         </p>
         <p style="text-align: center; font-size: 18px">
             <strong>Módulo resiliente</strong>
         </p>
         <p style="text-align: justify; ">
-            Para determinar el módulo resiliente se emplea el siguiente procedimiento.
+            Para determinar el módulo resiliente de la subrasante se emplea el siguiente procedimiento:
         </p>
         <p id="MrEcuacion" style="text-align: center;"></p>
         <p id="MrProceso" style="text-align: center;"></p>
         <br>
         <p style="text-align: center; font-size: 18px">
-            <strong>Módulo de reacción</strong>
+            <strong>Módulo de reacción compuesto (k) de la subrasante</strong>
         </p>
         <p style="text-align: justify; ">
-            Para determinar el módulo de reacción se emplea el ábaco ilustrado en la figura 2, el mismo que está en función del módulo resiliente de subrasante, el espesor y el módulo resiliente de la subbase.
+				El módulo de reacción de la subrasante (k), se define como la presión que ha de transmitirse a una placa para producir en el suelo una deformación prefijada. Para determinarlo se emplea el ábaco ilustrado en la figura 2, el mismo que está en función del módulo resiliente de subrasante, el espesor y el módulo resiliente de la subbase.
         </p>
         <p id="print_moduloReaccion" style="font-size: 16px; text-align: justify"></p>
         <img style="width: 100%" id="copy_carta_moduloReaccion">
@@ -2656,7 +2660,7 @@
             <strong>Efecto de fundación rígida</strong>
         </p>
         <p style="text-align: justify; display: none " class="procesoFundacionRigida">
-            Al considerar el efecto de fundación rígida se realiza una corrección del módulo de reacción considerando la profundidad a la que se encuentra la fundación, esto se lo realiza con el ábaco que se muestra en la figura 3.
+            
         </p>
         <p id="print_fundación" style="font-size: 16px; text-align: justify; display: none" class="procesoFundacionRigida"></p>
         <img style="width: 100%; display: none" id="copy_carta_fundacion" class="procesoFundacionRigida">
@@ -2676,7 +2680,7 @@
     
     <div id="titulo_graficaEspesor_reporte" style="margin-bottom: 0px; display:none; width: 100% " class='page-break-after'>
         <p style="text-align: center; font-size: 20px">
-            <strong>Cálculo de espesor de la carpeta de hormigón</strong>
+            <strong>Cálculo de espesor de la losa de hormigón</strong>
         </p>
         <p style="text-align: center; font-size: 20px">
             <strong>Método gráfico</strong>
@@ -2685,7 +2689,17 @@
         <p id="print_Espesor" style="font-size: 16px; text-align: justify;"></p>
         <img style="width: 100%" id="copy_carta_Espesor">
         <p id="numFiguraEspesor" style="font-size: 14px; text-align: center"></p>
-        <br>
+		<br>
+		<p style="text-align: center; font-size: 20px">
+				<strong>Método numérico</strong>
+		</p>
+		<p style="text-align: justify;">El espesor de losa de hormigón, también pueden ser calculado usando la siguiente ecuación:
+		</p>
+		<img src="Images/FlotaVehiculos/ecuacionD.png" width="600px" height="100px" />
+		
+		<p style="text-align: justify;">Reemplazando todas las variables e iterando mediante el método NewtonRaphson se tiene:</p>
+		<p id="txt_EspesorLosa_copy"></p>
+		<p id="txt_EspesorFinal_copy"></p>
     </div>
 
     <div id="titulo_clcSN_reporte" style="margin-bottom: 0px; display:none " class='page-break-after'>

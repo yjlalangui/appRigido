@@ -1,6 +1,7 @@
 var pasoPaso = false;
 
 $(document).ready(function () {
+    
     // Para agregar la capa de base //
     $('.numeric2').autoNumeric({
         aSep: '',
@@ -12,13 +13,9 @@ $(document).ready(function () {
         aDec: '.',
         mDec: 0
     });
-    $('#pavimentoRigido').validate();
+    
 
-    /*
-    $("#añadircapa input:checkbox").click(function() {
-        $("#selecmateriales").find("." + $(this).attr("name")).toggle();
-
-    });*/
+  
 
     // arreglo para mostrar visualmente la capa base y que mostrara tambien el calculo de los parametros de la base//
     $('#materialsubbasegranular').css('display', 'none');
@@ -28,35 +25,9 @@ $(document).ready(function () {
     $('#grafica-sbs-cemento').css('display', 'none');
     $('#grafica-sbs-bituminosa').css('display', 'none');
     $('#dat-subbase-graftr').css('display', 'none');
-    
-    /*
-        $('#btnPaso').click(function() {
-            pasoPaso = !pasoPaso;
-            if (pasoPaso) {
-                $('#div-ingreso-datos').attr('class', 'col-md-5');
-                $('#div-paso-paso').attr('class', 'col-md-7').show();
-                $('.dis-col-3').attr('class', 'dis-col-3 col-md-12'); //de 3 a 12  
-                $('.dis-col-4').attr('class', 'dis-col-4 col-md-12'); //de 3 a 12           
-                $('.dis-col-6').attr('class', 'dis-col-6 col-md-12'); //de 2 a 1
-                $('.dis-col-8').attr('class', 'dis-col-8 col-md-12'); //de 3 a 12
-                $('.dis-col-9').attr('class', 'dis-col-9 col-md-12');
-                $('.dis-col-9').css('height', "");
-                $('.mk').css('height', "");
-                $('.mk1').css('height', "");
-            } else {
-                $('#div-ingreso-datos').attr('class', 'col-md-12');
-                $('#div-paso-paso').attr('class', 'col-md-12').hide();
-                $('.dis-col-3').attr('class', 'dis-col-3 col-md-3'); //de 12 a 3
-                $('.dis-col-4').attr('class', 'dis-col-4 col-md-4'); //de 3 a 12   
-                $('.dis-col-6').attr('class', 'dis-col-6 col-md-6'); //de 12 a 6
-                $('.dis-col-8').attr('class', 'dis-col-8 col-md-8'); //de 12 a 6
-                $('.dis-col-9').attr('class', 'dis-col-9 col-md-9'); //de 12 a 6
-                $('.dis-col-9').css('height', "215px");
-                $('.mk').css('height', "205px");
-                $('.mk1').css('height', "185px");
-            }
-        });*/
 
+    $("#clasfvehiculos input:text").css('display', 'none');
+   
     //botones Cargar ejemplo - Calcular - Reporte - Detalle
     document.getElementById('reporte').style.display = 'true';
     document.getElementById('btnPaso').style.display = 'true';
@@ -84,6 +55,7 @@ $(document).ready(function () {
         var divpasopaso = $("#div-paso-paso");
 		var wh = $( window ).height() + 'px'; 
         if (divpasopaso.is(":visible")) {
+            $('#btnPaso').hide();
             $('#tituloapp').css('height', "40px");
             $('#tituloapp').css('line-height', "40px");
             $('#procedimientos').css('height', "40px");
@@ -95,20 +67,26 @@ $(document).ready(function () {
             $('#pestañas').css('overflow-y', "scroll");
             $('.right-proceso-rigid').show();
             $('.helpData').hide();
-           
-            $('.dis-col-9').css('height', "");
+            $('.btnRigidoEjemplo').hide();
+            
+            $('.dis-col-9').addClass('');
+            $('.col-subrasante').css('height', "720px");
             
             $('.mk').css('height', "120px");
             $('.mk1').css('height', "100px");
-            $('.height-drenaje').css('height', "130px");
-            $('.height-drenaje-body').css('height', "110px");
+            //$('.height-drenaje').css('height', "130px");
+            //$('.height-drenaje-body').css('height', "110px");
             $('.base_contenedor').css('height', "auto");
-            $('.coef_J').css('height', "auto");
-            $('.coef_J_body').css('height', "auto");
-            $('.height-fac-PS').css('height', "190px");
-            $('.height-fac-PS-head').css('height', "180px");
-            $('.height-fac-PS-body').css('height', "180px");
+            /*$('.coef_J').css('height', "auto");
+            $('.coef_J_body').css('height', "auto");*/
+            $('.fila-2-principal, .fila-2-secundario').addClass('auto-height');
+            $('.fila-2-principal_reducida, .fila-2-secundario_reducida').addClass('auto-height');
+            $('.height-fac-PS').css('height', "230px");
+            
             $('#myModal_aviso_rigid_anclas').modal('show');  
+            $("html, body").animate({
+				scrollTop: 0 + "px"
+            });
         } else {
             $('#tituloapp').css('height', "30px");
             $('#tituloapp').css('line-height', "30px");
@@ -122,21 +100,26 @@ $(document).ready(function () {
             $('.right-proceso-rigid').hide();
             $('.helpData').show();
             //$('.dis-col-9').css('height', "215px");
-            
+            $('.col-subrasante').css('height', "auto");
             $('.mk').css('height', "165px");
             $('.mk1').css('height', "145px");
-            $('.height-drenaje').css('height', "180px");
-            $('.height-drenaje-body').css('height', "160px");
+            //$('.height-drenaje').css('height', "180px");
+            //$('.height-drenaje-body').css('height', "160px");
             $('.base_contenedor').css('height', "190px");
-            $('.coef_J').css('height', "234px");
-            $('.coef_J_body').css('height', "224px");
+            //$('.coef_J').css('height', "234px");
+            //$('.coef_J_body').css('height', "224px");
+            $('.fila-2-principal, .fila-2-secundario').removeClass('auto-height');
+            $('.fila-2-principal_reducida, .fila-2-secundario_reducida').removeClass('auto-height');
             $('.height-fac-PS').css('height', "230px");
-            $('.height-fac-PS-head').css('height', "220px");
-            $('.height-fac-PS-body').css('height', "200px");
+            $('.btnRigidoEjemplo').show();
         }
     });
 
+    $('#salirProcedimientos').click(function () {
+        $('#btnPaso').trigger('click');
+        $('#btnPaso').show();
 
+    });
 
     // métodos para anclar secciones de la pagina
     $("#parametroTrafico").on("click", function () {
@@ -314,7 +297,7 @@ $(document).ready(function () {
     $("#subbaseCBR").on("click", function () {
         var subbaseCBR = $("#subbaseCBR")
         if (subbaseCBR.is(":checked")) {
-            $("#subbase-crc-td").text("CBR");
+            $("#subbase-crc-td").text("CBR (%)");
             $("#subbase-crc").val("");
             $("#subbasea2").val("");
             $("#subbaseMb").val("");
@@ -378,7 +361,7 @@ $(document).ready(function () {
         var kfundacion = parseFloat($('ksubrasante').val());
         var funrigida = $("#funrigida")
         if (funrigida.is(":checked")) {
-            $(".fundaRigida").show();
+            
             $("#profrigida").prop("disabled", false);
             
             $("#usoK").val(kcombinado)
@@ -389,8 +372,8 @@ $(document).ready(function () {
             loadGraph6();
             finalk();
         } else {
-            $(".fundaRigida").hide();
-
+            
+            $('#kfrsubrasante').val("")
             $("#profrigida").prop("disabled", true);
             $("#usoK").val(kfundacion);
             loadGraph4();
@@ -411,14 +394,21 @@ $(document).ready(function () {
     });
 
 
-
-    $("#clasfvehiculos input:text").css("display", "none");
+    
+    
     // Para poder ingresar el porcentaje de los vehiculos//
 
-
+    
     $("#clcd").on("click", function () {
 		var valid = $('#frmGeneral').valid();
 		if (valid){
+
+            if (($("#trf_tmda").val() === "") && ($("#trf_tasa_cre").val() === "") && ($("#trf_per_dis").val() === "") && ($("#trf_direccionalidad").val() === "") && ($("#trf_espesor").val() === "")) {
+                $("#noCalcula_ESALS").show();
+            } else {
+                $("#noCalcula_ESALS").hide();
+            }
+
 			var espesord = Newton();
 			var esp = (Math.ceil(espesord / 0.5) * 0.5).toFixed(2);
 			$("#d").val(espesord.toFixed(2));
@@ -428,7 +418,10 @@ $(document).ready(function () {
 			var altura = $(document).height();
 			$("html, body").animate({
 				scrollTop: altura + "px"
-			});
+            });
+            $("#btnPaso").show();
+            $("#reporte").show();
+            $(".datosESALS").show();
 			if(($('#trf_tmda').val() === "")&&($('#trf_tasa_cre').val() === "")&&($('#trf_per_dis').val() === "")&&($('#trf_direccionalidad').val() === "")&&($('#trf_espesor').val() === "")){
 				$(".datosESALS").hide();
 			} else {
@@ -441,8 +434,11 @@ $(document).ready(function () {
         
         if(($('#trf_tmda').val() === "")&&($('#trf_tasa_cre').val() === "")&&($('#trf_per_dis').val() === "")&&($('#trf_direccionalidad').val() === "")&&($('#trf_espesor').val() === "")){
             $(".datosESALS").hide();
+            $("#noCalcula_ESALS").show();
         } else {
         $(".datosESALS").show();
+        $("#noCalcula_ESALS").hide();
+        
     }
 
     });
@@ -536,10 +532,10 @@ function modelastico() {
     if (tipoagregado == "Grueso-ígneo") {
         var ec = 14.2233 * (17500 * Math.sqrt(fc))
         $("#Ec").val(ec.toFixed(2));
-    } else if (tipoagregado == "Grueso-Metamórfico") {
+    } else if (tipoagregado == "Grueso-metamórfico") {
         var ec = 14.2233 * (15000 * Math.sqrt(fc))
         $("#Ec").val(ec.toFixed(2));
-    } else if (tipoagregado == "Grueso-Sedimentario") {
+    } else if (tipoagregado == "Grueso-sedimentario") {
         var ec = 14.2233 * (11500 * Math.sqrt(fc))
         $("#Ec").val(ec.toFixed(2));
     } else if (tipoagregado == "Sin información") {
@@ -587,36 +583,7 @@ function perdidasorporte() {
 }
 
 
-// CALCULO DE ESPESOR//
-var espesor = function () {
-    var zr = parseFloat($('#desvest').val());
-    var so = parseFloat($('#destandar').val());
-    var w18 = parseFloat($('#numeroejesequi').val());
-    var psi = parseFloat($('#deltapsi').val());
-    var pt = parseFloat($('#pfinal').val());
-    var sc = parseFloat($('#Sc').val());
-    var cd = parseFloat($('#subbasem2').val());
-    var sccd = sc * cd;
-    var j = parseFloat($('#tcvalor').val());
-    var j215 = 215.63 * j;
-    var ec = parseFloat($('#Ec').val());
-    var k = parseFloat($('#kfinal').val());
-    var eck = ec / k;
-    var t2 = 18.42 / (Math.pow(eck, 0.25));
-    var t1 = Math.log10((psi) / (4.5 - 1.5));
 
-    for (i = 1; i < 10; i += 0.000001) {
-        var d = eval((zr * so) + (7.35 * Math.log10(i + 1)) - (0.06) + (t1 / (1 + (1.624e7 / (Math.pow((i + 1), 8.46))))) + ((4.22 - (0.32 * pt)) * Math.log10((sccd * ((Math.pow(i, 0.75)) - 1.132)) / (j215 * (Math.pow(i, 0.75) - t2)))) - (Math.log10(w18)));
-        if (0 <= d && d <= 0.0001) {
-            return i;
-
-        } else {
-
-        }
-
-
-    }
-}
 
 // Mostrar - Ocultar: ayuda Periodo de diseño
 function mostrarDiseño() {
@@ -712,7 +679,7 @@ function parametrossubbase() {
     var propbs = parseFloat($('#subbase-crc').val());
     var txtbs = $('#subbase-crc-td').text();
 
-    if ((txtbs == "CBR")) {
+    if ((txtbs == "CBR (%)")) {
         if ((20 <= propbs) && (propbs <= 100)) {
             var rescbrmrbs = 1000 * polino8(15.0144902782049, 0.421429863898084, 0.0211445860477397, -0.00331487108633155, 0.000170131204924928, -0.00000440480956598321, 0.0000000615888041954893, -0.000000000444189750519602, 0.00000000000129840756710479, (propbs - 20))
             $("#subbaseMb").val(rescbrmrbs.toFixed(2));
@@ -821,12 +788,12 @@ function parametrossubbase() {
 // CALCULA MODULO RESILIENTE 
 function calcmoduloresiliente() {
     var varsubr = parseFloat($('#datosubrasante').val());
-    if ((varsubr < 7.2)) {
+    if ((varsubr <= 10)) {
         var mrsubr = 1500 * varsubr;
         $("#Modulor").val(mrsubr.toFixed(2));
         $("#moduloresiliente").val(mrsubr.toFixed(2));
-    } else if ((7.2 <= varsubr) && (varsubr <= 20)) {
-        var mrsubr1 = 3000 * varsubr;
+    } else if ((10 < varsubr) && (varsubr <= 20)) {
+        var mrsubr1 = 3000 * (varsubr ^ 0.65);
         $("#Modulor").val(mrsubr1.toFixed(2));
         $("#moduloresiliente").val(mrsubr1.toFixed(2));
     } else if ((20 < varsubr) && (varsubr <= 100)) {

@@ -21,10 +21,10 @@ function imprimir1() {
 	var recibetramo = document.getElementById('datoTramo').value;
 	document.getElementById('txtTramo_rigid').innerHTML = "<strong>" + "Tramo:  " + "</strong>" + recibetramo;
 
-	var recibeDiseñador = document.getElementById('datoDiseñador').value;
-	document.getElementById('txtDiseñador_rigid').innerHTML = "<strong>" + "Diseñador:  " + "</strong>" + recibeDiseñador;
+	var recibeDisenador = document.getElementById('datoDiseñador').value;
+	document.getElementById('txtDisenador_rigid').innerHTML = "<strong>" + "Diseñador:  " + "</strong>" + recibeDisenador;
 
-	if((recibenombre === "")&&(recibeubicacion === "")&&(reciberuta === "")&&(recibetramo === "")&&(recibeDiseñador === "")){
+	if((recibenombre === "")&&(recibeubicacion === "")&&(reciberuta === "")&&(recibetramo === "")&&(recibeDisenador === "")){
 		$(".datosProyect").hide();
 	} else {
 		$(".datosProyect").show();
@@ -140,7 +140,22 @@ function imprimir1() {
 	document.getElementById('txt_TipoSubbase').innerHTML = "<strong>" + "Tipo de Subbase: " + "</strong>" + recibeTipoSubbase + "";
 	var recibePerdidaRango = document.getElementById('tiposbrango').value;
 	document.getElementById('txt_PerdidaRango').innerHTML = "<strong>" + "Rango de pérdida de soporte: " + "</strong>" + recibePerdidaRango + "";
-	var recibePerdidaValor = document.getElementById('ly').value;
+	var valorsoporte = parseFloat($('#valorLsoporte').val());
+    if ((0 <= valorsoporte) && (valorsoporte < 0.5)) {
+        var recibePerdidaValor = 0
+        
+    } else if ((0.5 <= valorsoporte) && (valorsoporte < 1.5)) {
+        var recibePerdidaValor = 1
+        
+    }
+     else if ((1.5 <= valorsoporte) && (valorsoporte < 2.5)) {
+        var recibePerdidaValor = 2
+        
+    } else if ((2.5 <= valorsoporte) && (valorsoporte <= 3)) {
+        var recibePerdidaValor = 3
+        
+    }
+	
 	document.getElementById('txt_PerdidaValor').innerHTML = "<strong>" + "Valor de la pérdida de soporte (L): " + "</strong>" + recibePerdidaValor + "";
 	var recibeKCorregido = document.getElementById('Kcorr').value;
 	document.getElementById('txt_KCorregido').innerHTML = "<strong>" + "Módulo de reacción corregido (Kcorr): " + "</strong>" + recibeKCorregido + " pci";
@@ -195,10 +210,10 @@ function imprimir1() {
 	var recibetramo = document.getElementById('datoTramo').value;
 	document.getElementById('txtTramo_rigid').innerHTML = "<strong>" + "Tramo:  " + "</strong>" + recibetramo;
 
-	var recibeDiseñador = document.getElementById('datoDiseñador').value;
-	document.getElementById('txtDiseñador_rigid').innerHTML = "<strong>" + "Diseñador:  " + "</strong>" + recibeDiseñador;
+	var recibeDisenador = document.getElementById('datoDisenador').value;
+	document.getElementById('txtDisenador_rigid').innerHTML = "<strong>" + "Diseñador:  " + "</strong>" + recibeDisenador;
 
-	if((recibenombre === "")&&(recibeubicacion === "")&&(reciberuta === "")&&(recibetramo === "")&&(recibeDiseñador === "")){
+	if((recibenombre === "")&&(recibeubicacion === "")&&(reciberuta === "")&&(recibetramo === "")&&(recibeDisenador === "")){
 		$(".datosProyect").hide();
 	} else {
 		$(".datosProyect").show();
@@ -240,11 +255,11 @@ function imprimir1() {
 	if((recibeTMDA === "")&&(reciber === "")&&(recibePD === "")&&(recibeD === "")&&(recibeEspesor === "")){
 		$(".datosESALS").hide();
 		var tab_drenaje_subbase = 1
-		
+		$("#noCalcula_ESALS").hide();
 
 	} else {
 	$(".datosESALS").show();
-	$("#noCalcula_ESALS").hide();
+	$("#noCalcula_ESALS").show();
 	var tab_drenaje_subbase = 2
 }
 	//FIN
@@ -261,18 +276,20 @@ function imprimir1() {
 		var unidadsbase = "";
 	}
 
+	var tpbs = $("#materialsbs option:selected").text();
+    
 	var recibepropvsbase = document.getElementById('subbase-crc').value;
 	document.getElementById('txt_propiedad_subbase_rigid').innerHTML = "<strong>" + recibepropsbase + ": " + "</strong>" + recibepropvsbase + unidadsbase;
 	var recibea3 = document.getElementById('subbasea2').value;
 	document.getElementById('txt_a2_rigid').innerHTML = "<strong>" + "Coeficiente estructural (a<sub>2</sub>): " + "</strong>" + recibea3;
 	var recibeMsb = document.getElementById('subbaseMb').value;
 	document.getElementById('txtMb_rigid').innerHTML = "<strong>" + "Módulo resiliente (Msb): " + "</strong>" + recibeMsb + " psi";
-	document.getElementById('print_PropiedadSubBase_rigid').innerHTML = "En la figura 1 se observa que con el valor correspondiente de " + recibepropsbase + " igual a " + recibepropvsbase + unidadsbase + " se traza una línea horizontal y con ella se leen los valores de coeficiente estructural a<sub>2</sub> igual a " + "<strong>" + recibea3 + "</strong>" + " y un módulo resiliente igual a " + "<strong>" + recibeMsb + " psi." + "</strong>";
+	document.getElementById('print_PropiedadSubBase_rigid').innerHTML = "En este caso, la subbase es " + tpbs +  " cuya caracterización mecánica es el " + recibepropsbase + " de " + recibepropvsbase + unidadsbase + ". En la Figura 1 se traza una línea horizontal en base al valor del " + recibepropsbase + ", con la que se lee el coeficiente estructural a<sub>2</sub> igual a " + "<strong>" + recibea3 + "</strong>" + " y un módulo resiliente igual a " + "<strong>" + recibeMsb + " psi." + "</strong>";
 	var recibecds = document.getElementById('calidaddrenaje').value;
 	document.getElementById('txt_cd_subbase_rigid').innerHTML = "<strong>" + "Calidad del drenaje: " + "</strong>" + recibecds;
 	var recibepss = document.getElementById('subbasehumedad').value;
 	document.getElementById('txt_porcentajeHumedad_subbase_rigid').innerHTML = "<strong>" + "Porcentaje de exposición de humedad próximos a la saturación: " + "</strong>" + recibepss + " %";
-	document.getElementById('explicacionDrenaje').innerHTML = "Para la determinación de este parámetro se emplea la tabla " + tab_drenaje_subbase + ", la misma que está en función de la calidad del drenaje y el porcentaje de tiempo de exposición de la estructura del pavimento a nivel de humedades próximas a la saturación. En este caso la calidad del drenaje es " + recibecds + " y el porcentaje de tiempo de exposición de la estructura es del " + recibepss  + "%," + " a partir de estos datos se ubica un rango de la tabla, tal como se muestra a continuación."
+	document.getElementById('explicacionDrenaje').innerHTML = "Para la determinación de este parámetro se emplea la tabla " + tab_drenaje_subbase + ", la misma que está en función de la calidad del drenaje y el porcentaje de tiempo de exposición de la estructura del pavimento a nivel de humedades próximas a la saturación. En este caso la calidad del drenaje es " + recibecds + " y el porcentaje de tiempo de exposición de la estructura es del " + recibepss  + "%." + " A partir de estos datos se ubica un rango de la tabla, tal como se muestra a continuación."
 	document.getElementById('table_drenaje_subbase').innerHTML = "Tabla " + tab_drenaje_subbase + ". Valores de coeficiente de drenaje."
 	var recibem3 = document.getElementById('subbasem2').value;
 	document.getElementById('txt_m2_rigid').innerHTML = "<strong>" + "Coeficiente de drenaje de subbase (m<sub>2</sub>): " + "</strong>" + recibem3;
@@ -312,7 +329,7 @@ function imprimir1() {
 	document.getElementById('txt_ModuloResiSubbase').innerHTML = "<strong>" + "Módulo resiliente de subbase (Mb): " + "</strong>" + recibeModuloResiSubbase + " psi";
 	var recibeModuloReaccion = document.getElementById('kredondeado').value;
 	document.getElementById('txt_ModuloReaccion').innerHTML = "<strong>" + "Módulo de reacción (K): " + "</strong>" + recibeModuloReaccion + " pci";
-	document.getElementById('print_moduloReaccion').innerHTML = "En esta figura, en primer lugar se ubica el valor correspondiente al espesor de subbase (" + recibeEspesorSubb + " in" + "), luego desde ese punto se traza una línea vertical hacia arriba y hacia abajo ubicando el módulo elástico de subbase ("+recibeModuloResiSubbase+" psi) y módulo resiliente de subrasante ("+recibeModuloResiSubrasante+" psi), respectivamente. A partir del punto ubicado en el cuadrante del módulo resiliente se traza una línea horizontal hasta la línea inclinada de paso, para de ahí trazar una línea vertical hasta el cuadrante del módulo de reacción compuesto (k). Por otro lado a partir del punto encontrado en el cuadrante del módulo elástico de subbase se traza una línea horizontal hasta intersectar la línea vertical trazada previamente. En esta intersección se debe leer el módulo de reacción compuesto (k) que en este caso es de " + "<strong>" + recibeModuloReaccion + " pci." + "</strong>";
+	document.getElementById('print_moduloReaccion').innerHTML = "En esta figura, en primer lugar se ubica el valor correspondiente al espesor de subbase (" + recibeEspesorSubb + " in" + "), luego desde ese punto se traza una línea vertical hacia arriba y hacia abajo, ubicando el módulo elástico de subbase ("+recibeModuloResiSubbase+" psi) y módulo resiliente de subrasante ("+recibeModuloResiSubrasante+" psi), respectivamente. A partir del punto ubicado en el cuadrante del módulo resiliente se traza una línea horizontal hasta la línea inclinada de paso, para de ahí trazar una línea vertical hasta el cuadrante del módulo de reacción compuesto (k). Por otro lado, a partir del punto encontrado en el cuadrante del módulo elástico de subbase se traza una línea horizontal hasta intersectar la línea vertical trazada previamente. En esta intersección se debe leer el módulo de reacción compuesto (k) que en este caso es de " + "<strong>" + recibeModuloReaccion + " pci." + "</strong>";
 	var canvas_chartModuloReaction = document.getElementById('moduloReaccionCompuestoK');
 		var URL_chartK = canvas_chartModuloReaction.toDataURL('image2/jpeg');
 		document.getElementById('copy_carta_moduloReaccion').src = URL_chartK;
@@ -322,7 +339,7 @@ function imprimir1() {
 	document.getElementById('txt_Produndidad').innerHTML = "<strong>" + "Profundidad de fundación rigida: " + "</strong>" + recibeProdundidad + " ft";
 	var recibeModuloReaccion1 = document.getElementById('kfrsubrasante').value;
 	document.getElementById('txt_ModuloReaccion1').innerHTML = "<strong>" + "Módulo de reacción (Kfr): " + "</strong>" + recibeModuloReaccion1 + " pci";
-	document.getElementById('print_fundación').innerHTML = "Al considerar el efecto de fundación rígida se realiza una corrección del módulo de reacción considerando la profundidad a la que se encuentra la fundación, esto se lo realiza con el ábaco que se muestra en la figura 3. Para el trazado se deben ubicar el valor correspondiente al módulo de resiliente de subrasante (" + recibeModuloResiSubrasante + " psi)," + " de donde se traza una línea vertical hasta la profundidad de fundación (" + recibeProdundidad + " pies)." + " A partir de ese punto se traza una línea horizontal hasta ubicar el módulo de reacción previo (" + recibeModuloReaccion + "pci)." + " Y finalmente desde ese punto se traza una línea vertical hacia abajo hasta intersecar el módulo de reacción corregido por precensia de fundación rígida, que en este caso es igual a " + "<strong>" + recibeModuloReaccion1 + " pci." + "</strong>";
+	document.getElementById('print_fundación').innerHTML = "Cuando el pavimento se encuentra cerca de una fundación rígida se debe modificar el módulo de reacción, utilizando la figura 3. Para el trazado se deben ubicar el valor correspondiente al módulo de resiliente de subrasante (" + recibeModuloResiSubrasante + " psi)," + " de donde se traza una línea vertical hasta la profundidad de fundación (" + recibeProdundidad + " pies)." + " A partir de ese punto se traza una línea horizontal hasta ubicar el módulo de reacción obtenido previamente (" + recibeModuloReaccion + " pci)." + " Y finalmente desde ese punto se traza una línea vertical hacia abajo hasta intersecar el módulo de reacción corregido por presencia de una fundación rígida, que en este caso es igual a " + "<strong>" + recibeModuloReaccion1 + " pci." + "</strong>";
 	var canvas_chartFundacion = document.getElementById('KfundacionRigida');
 		var URL_chartKfundacionRigida = canvas_chartFundacion.toDataURL('image3/jpeg');
 		document.getElementById('copy_carta_fundacion').src = URL_chartKfundacionRigida;
@@ -344,14 +361,29 @@ function imprimir1() {
 	document.getElementById('txt_TipoSubbase').innerHTML = "<strong>" + "Tipo de Subbase: " + "</strong>" + recibeTipoSubbase + "";
 	var recibePerdidaRango = document.getElementById('tiposbrango').value;
 	document.getElementById('txt_PerdidaRango').innerHTML = "<strong>" + "Rango de pérdida de soporte: " + "</strong>" + recibePerdidaRango + "";
-	var recibePerdidaValor = document.getElementById('valorLsoporte').value;
+	var valorsoporte = parseFloat($('#valorLsoporte').val());
+    if ((0 <= valorsoporte) && (valorsoporte < 0.5)) {
+        var recibePerdidaValor = 0
+        
+    } else if ((0.5 <= valorsoporte) && (valorsoporte < 1.5)) {
+        var recibePerdidaValor = 1
+        
+    }
+     else if ((1.5 <= valorsoporte) && (valorsoporte < 2.5)) {
+        var recibePerdidaValor = 2
+        
+    } else if ((2.5 <= valorsoporte) && (valorsoporte <= 3)) {
+        var recibePerdidaValor = 3
+        
+    }
+	
 	document.getElementById('txt_PerdidaValor').innerHTML = "<strong>" + "Valor de la pérdida de soporte (L): " + "</strong>" + recibePerdidaValor + "";
 	var recibeKCorregido = document.getElementById('Kcorr').value;
 	document.getElementById('txt_KCorregido').innerHTML = "<strong>" + "Módulo de reacción corregido (Kcorr): " + "</strong>" + recibeKCorregido + " pci";
 	
 	
-	document.getElementById('explicacionLS').innerHTML = "El factor de pérdida de soporte está en función del tipo de subbase en un rango entre 0 y 3, para realizar esta corrección se emplea el ábaco de la figura " + numFigura
-	document.getElementById('print_LS').innerHTML = "En primer lugar, se debe ubicar el valor correspondiente al módulo de reacción (K) (" + usoK + " pci)." + " Luego se traza una línea vertical hasta ubicar el valor correspondiente a el factor de pérdida de soporte (" + recibePerdidaValor + ")" + " y finalmente se traza una línea horizontal hasta intersecar los valores de módulo de reacción corregido por pérdida de soporte, que en este caso es igual a  " + "<strong>" + recibeKCorregido + " pci." + "</strong>";
+	 
+	document.getElementById('print_LS').innerHTML = "El factor de pérdida de soporte está en función del tipo de subbase, que en este caso está entre 0 y 3. Para realizar esta corrección se emplea el ábaco de la figura " + numFigura +". En primer lugar, se debe ubicar el valor correspondiente al módulo de reacción (K) (" + usoK + " pci)." + " Luego se traza una línea vertical hasta ubicar el valor correspondiente a el factor de pérdida de soporte (" + recibePerdidaValor + ")" + " y finalmente se traza una línea horizontal hasta intersecar los valores de módulo de reacción corregido por pérdida de soporte, que en este caso es igual a  " + "<strong>" + recibeKCorregido + " pci." + "</strong>";
 	var canvas_chartPerdidaSoporteK = document.getElementById('perdidaSoporteK');
 		var URL_chartPerdidaSoporteK = canvas_chartPerdidaSoporteK.toDataURL('image4/jpeg');
 		document.getElementById('copy_carta_LS').src = URL_chartPerdidaSoporteK;
@@ -379,6 +411,41 @@ function imprimir1() {
         
 	} 
 
+//módulo elástico del hormigon
+	var tipoagregado = $("#tipoagregado option:selected").text();
+    var fc = parseFloat($('#fc').val());
+	var ec = $("#Ec").val();
+    if (tipoagregado == "Grueso-ígneo") {       
+        document.getElementById('EcEcuacion').innerHTML = "Ec = 14.2233 * (17500*√f´c)"
+		document.getElementById('EcProceso').innerHTML = "Ec = 14.2233 * [17500* (√" + "" +fc+ " kg/cm<sup>2</sup>)] = " + ec + " psi"
+    } else if (tipoagregado == "Grueso-metamórfico") {
+		
+		document.getElementById('EcEcuacion').innerHTML = "Ec = 14.2233 * (15000*√f´c)"
+		document.getElementById('EcProceso').innerHTML = "Ec = 14.2233 * [15000* (√" + "" +fc+ " kg/cm<sup>2</sup>)] = " + ec + " psi"
+        
+    } else if (tipoagregado == "Grueso-sedimentario") {
+		document.getElementById('EcEcuacion').innerHTML = "Ec = 14.2233 * (11500*√f´c)"
+		document.getElementById('EcProceso').innerHTML = "Ec = 14.2233 * [11500* (√" + "(" +fc+ " kg/cm<sup>2</sup>)] = " + ec + " psi"
+        
+    } else if (tipoagregado == "Sin información") {
+		document.getElementById('EcEcuacion').innerHTML = "Ec = 14.2233 * (12500*√f´c)"
+		document.getElementById('EcProceso').innerHTML = "Ec = 14.2233 * [12500* (√" + "" +fc+ " kg/cm<sup>2</sup>)] = " + ec + " psi"
+        
+	}
+	
+	
+	
+//Coeficiente de transferencia de carga
+if(recibeRango==1){
+	recibeRangoCorregido = "es de " + recibeRango
+} else {
+	recibeRangoCorregido = "está entre " + recibeRango
+}
+document.getElementById('coef_TransferenciaJ').innerHTML = "La normativa AASHTO 1998 recomienda que para un tipo de berma de " + recibeBerma + ", que " +recibeCarga + " presente dispositivo de carga y con un tipo de pavimento " + recibePavimento + ", el valor del coeficiente estructural " + recibeRangoCorregido + ", en este caso se asumio un valor de " +recibeValor 
+
+
+
+
 	//Resultados
 	var recibeEspesorLosa = document.getElementById('d').value;
 	document.getElementById('txt_EspesorLosa').innerHTML = "<strong>" + "Espesor de losa de concreto: " + "</strong>" + recibeEspesorLosa + " in";
@@ -386,13 +453,13 @@ function imprimir1() {
 	var recibeEspesorFinal = document.getElementById('dr').value;
 	document.getElementById('txt_EspesorFinal').innerHTML = "<strong>" + "Espesor de losa redondeado: " + "</strong>" + recibeEspesorFinal + " in";
 	document.getElementById('txt_EspesorFinal_copy').innerHTML = "<strong>" + "Espesor de losa redondeado: " + "</strong>" + recibeEspesorFinal + " in";
-	document.getElementById('explicacionEspesor').innerHTML = "El método gráfico permite determinar el espesor de la losa de hormigón con el ábaco que se ilustra en la figura " + numEspesor + ". Se necesitan el módulo de reacción de la subrasante (Mr), módulo elástico del hormigón (Ec), módulo de rotura del hormigón (S), coeficiente de transferencia de carga (J), coeficiente de drenaje (Cd), índice de serviciabilidad (Δpsi), confiabilidad (R), desviación estándar (So), y el número de ejes equivalentes (ESAL´S)."
-	document.getElementById('print_Espesor').innerHTML = "Para el trazado de este ábaco se debe empezar por dos lados, y así la intersección de estos dos trazados darán como resultado el espesor de la losa de hormigón. El primer trazado empieza en el valor del módulo de reacción de la subrasante (" + recibeKCorregido + " pci)" + " , luego se traza una línea vertical hasta el módulo elástico del hormigón (" + recibeModuloElastico + " psi), se continúa trazando una línea horizontal hasta el borde de la cuadrícula, para luego trazar una línea diagonal que pase por el módulo de rotura (" + recibeModuloRotura + " psi). Este trazado se extiende hasta llegar a la primera línea de paso, luego se continúa trazando una línea diagonal que cruce el eje del coeficiente de transferencia de carga (" + recibeValor + "), extendiéndola hasta la segunda línea de paso. Desde este punto se traza otra línea diagonal que pase por el eje del coeficiente de drenaje (" + recibem3 + ") y llegue hasta la siguiente línea de paso. Finalmente se traza una línea diagonal que pase por el eje del índice de serviciabilidad (" + recibepsi + ") y llegue al borde vertical de la cuadrícula, a partir de la cual se traza una línea horizontal que debe intersecar el otro trazado. Por otro lado, el segundo trazado empieza con el valor de confiabilidad (" + recibeconfi + "), luego se traza una línea diagonal que pase por el eje de la desviación estándar (" + recibeSo + ") y llegue a la línea de paso. Finalmente desde ese punto se traza una línea diagonal pasando por el eje de número de ejes equivalente (" + recibeESALS + "), y que llegue hasta el borde horizontal de la cuadrícula. A partir de este punto se traza una línea vertical hasta intersecar la horizontal trazada previamente, y en donde se lee el espesor de losa igual a " + "<strong>" + recibeEspesorFinal + " in." + "</strong>";
+	document.getElementById('explicacionEspesor').innerHTML = "El método gráfico permite determinar el espesor de la losa de hormigón con el ábaco que se ilustra en la figura " + numEspesor + ". Se necesita el módulo de reacción de la subrasante (Mr), módulo elástico del hormigón (Ec), módulo de rotura del hormigón (S), coeficiente de transferencia de carga (J), coeficiente de drenaje (Cd), índice de serviciabilidad (Δpsi), confiabilidad (R), desviación estándar (So), y el número de ejes equivalentes (ESAL´S)."
+	document.getElementById('print_Espesor').innerHTML = "Para el trazado de este ábaco se debe empezar por dos lados, y de esta manera la intersección de estos dos trazados darán como resultado el espesor de la losa de hormigón. El primer trazado empieza en el valor del módulo de reacción de la subrasante (" + recibeKCorregido + " pci)" + " , luego se traza una línea vertical hasta el módulo elástico del hormigón (" + recibeModuloElastico + " psi), se continúa trazando una línea horizontal hasta el borde de la cuadrícula, para luego trazar una línea diagonal que pase por el módulo de rotura (" + recibeModuloRotura + " psi). Este trazado se extiende hasta llegar a la primera línea de paso, luego se continúa trazando una línea diagonal que cruce el eje del coeficiente de transferencia de carga (" + recibeValor + "), extendiéndola hasta la segunda línea de paso. Desde este punto se traza otra línea diagonal que pase por el eje del coeficiente de drenaje (" + recibem3 + ") y llegue hasta la siguiente línea de paso. Finalmente se traza una línea diagonal que pase por el eje del índice de serviciabilidad (" + recibepsi + ") y llegue al borde vertical de la cuadrícula, a partir de la cual se traza una línea horizontal que debe intersecar el otro trazado. Por otro lado, el segundo trazado empieza con el valor de confiabilidad (" + recibeconfi + "), luego se traza una línea diagonal que pase por el eje de la desviación estándar (" + recibeSo + ") y llegue a la línea de paso. Finalmente desde ese punto se traza una línea diagonal pasando por el eje de número de ejes equivalente (" + recibeESALS + "), y que llegue hasta el borde horizontal de la cuadrícula. A partir de este punto se traza una línea vertical hasta intersecar la horizontal trazada previamente, y en donde se lee el espesor de losa igual a " + "<strong>" + recibeEspesorLosa + " in." + "</strong>, que redondeados sería "+ "<strong>" + recibeEspesorFinal + " in." + "</strong>";
 	document.getElementById('numFiguraEspesor').innerHTML = "Figura " + numEspesor + ". Ábaco de diseño para la estimación del espesor de la losa de hormigón"
 	var canvas_chartEspesor = document.getElementById('espesorFinalD');
 	var URL_chartEspesor = canvas_chartEspesor.toDataURL('image5/jpeg');
 	document.getElementById('copy_carta_Espesor').src = URL_chartEspesor;
-
+	document.getElementById('explicaciónClcEspesor').innerHTML = "El W18 re refiere al número de ejes equivalentes de la flota de vehículos (" +recibeESALS + " ESAL´s), el ZR es la desviación normal estándar ("+recibeZr+"), el So es la desviación estándar ("+recibeSo+"), D es el espesor de la losa de hormigón, Δpsi es el índice de serviciabilidad ("+recibepsi+"), pt es la serviciabilidad final ("+recibepf+"), Sc es el módulo de rotura ("+recibeModuloRotura+" psi), Cd es el coeficiente de drenaje ("+recibem3+"), J es el coeficiente de transferencia de carga ("+recibeValor+"), Ec es el módulo elástico del hormigón ("+recibeModuloElastico+" psi) y k es el módulo de reacción de la subrasante ("+recibeKCorregido+" pci). Reemplazando todas las variables e iterando mediante el método Newton-Raphson se tiene:"
 
 	var printme1 = document.getElementById("titulo_principal_reporte_rigid");
 

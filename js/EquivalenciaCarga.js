@@ -463,7 +463,7 @@ function ObtenerInterpolacionBase(pt, tipoEje, kips, espesor) {
             var eqv = kdif * edif / 2;
             var rst = eqv + einf;
             var result_fe = rst.toFixed(4);
-            var descript = jQuery.validator.format("{0}", "Con el rango indicado en la tabla se efectúa una interpolación entre los pesos del eje y los factores de equivalencia de carga");
+            var descript = jQuery.validator.format("{0}", "Con el rango indicado en la tabla se efectúa la interpolación correspondiente, por lo que el factor equivalencia de carga sería:");
             var frm = jQuery.validator.format("Fe = {0} + [({1} - {2}) * ({3} - {4}) / ({5} - {6})]", einf, kips, tabla[iinf][0], esup, einf, tabla[isup][0], tabla[iinf][0]);
             var form = jQuery.validator.format("Fe = {0}", result_fe );
             

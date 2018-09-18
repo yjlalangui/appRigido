@@ -15,7 +15,7 @@ $(document).ready(function() {
         $("#dispcarga").val("no");
         $("#tipopavimento").val("no reforzado");
         transfcarga();
-        $("#tcvalor").val(3.2);
+        $("#tcvalor").val(3.9);
         materialsbs();
         $("#subbaseCBR").prop("checked", true);
         $("#subbase-crc-td").text("CBR (%)");

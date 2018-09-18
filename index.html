@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<meta charset=utf-8"/>
 
 <head>
     <title>PAVIMENTO RÍGIDO</title>
@@ -34,15 +35,15 @@
     <link href="./Content/css/main.css" rel="stylesheet" />
     <link href="./Content/css/skins.css" rel="stylesheet" />
 
-    <script src="../appRigido/js/graficas/subBaseGranular.js"></script>
-    <script src="../appRigido/js/graficas/subBaseCemento.js"></script>
-    <script src="../appRigido/js/graficas/subBaseBituminoso.js"></script>
+    <script src="./js/graficas/subBaseGranular.js"></script>
+    <script src="./js/graficas/subBaseCemento.js"></script>
+    <script src="./js/graficas/subBaseBituminoso.js"></script>
 
-    <script src="../appRigido/js/graficas/moduloReaccionCompuestoK.js"></script>
-    <script src="../appRigido/js/graficas/fundacionRigidaK.js"></script>
-    <script src="../appRigido/js/graficas/perdidaSoporteK.js"></script>
+    <script src="./js/graficas/moduloReaccionCompuestoK.js"></script>
+    <script src="./js/graficas/fundacionRigidaK.js"></script>
+    <script src="./js/graficas/perdidaSoporteK.js"></script>
 
-    <script src="../appRigido/js/graficas/espesorFinalD.js"></script>
+    <script src="./js/graficas/espesorFinalD.js"></script>
 
     <script src="./js/calcec.js"></script>
 
@@ -178,7 +179,7 @@
 																								Diseñador:
 																							</td>
 																							<td style="width: 650px;">
-																								<input id="datoDiseñador" maxlength="90" class="form-control form-control-sm" type="text" style="text-align: left">
+																								<input id="datoDisenador" maxlength="90" class="form-control form-control-sm" type="text" style="text-align: left">
 																							</td>
 																						</tr>
 
@@ -243,7 +244,7 @@
 																										Losa de concreto
 																									</td>
 																								</tr>
-																								<tr class="añadirbs" id="bs" name="Base">
+																								<tr class="anadirbs" id="bs" name="Base">
 																									<td id="subbasematerial" style="border: 1px solid; border-color: rgb(255, 255, 255); background:rgb(240, 194, 95); padding-left: 5px;">
 																										Subbase
 																									</td>
@@ -1076,14 +1077,6 @@
 																									<input name="fc" id="fc" class="form-control form-control-sm numeric2 required" type="text" id="fc" onchange="modelastico()">
 																								</td>
 																							</tr>
-
-																							<tr>
-																								<td>Módulo de rotura - Sc 
-																								</td>
-																								<td>
-																									<input name="Sc" id="Sc" class="form-control form-control-sm numeric2 required" type="text" >
-																								</td>
-																							</tr>
 																							<tr>
 																								<td>Módulo elástico del concreto - Ec (psi)
 																								</td>
@@ -1091,6 +1084,19 @@
 																									<input class="form-control form-control-sm" type="text" disabled='true' id="Ec">
 																								</td>
 																							</tr>
+																							<tr>
+																								<td>
+																									<br>
+																								</td>
+																							</tr>
+																							<tr>
+																								<td>Módulo de rotura - Sc 
+																								</td>
+																								<td>
+																									<input name="Sc" id="Sc" class="form-control form-control-sm numeric2 required" type="text" >
+																								</td>
+																							</tr>
+																							
 																						</table>
 																					
 																				</div>
@@ -1441,7 +1447,7 @@
 												<h4 class="panel-title text-center">GRÁFICAS Y PROCEDIMIENTOS</h4>
 											</div>
 
-											<div id="pestañas" class="panel-body">
+											<div id="pestanas" class="panel-body">
 												<div class="row">
 
 													<!--PESTAÑAS-->
@@ -1759,15 +1765,7 @@
 																							<table id="procesodrenajeb" style="width:100%;">
 																								<tr style="text-align : justify;">
 																									<td>
-																										<p>Con el rango indicado en la tabla se efectúa una interpolación entre los porcentajes
-																											de tiempo de exposición
-																											de la estructura
-																											del pavimento a nivel
-																											de humedad próximos
-																											a la saturación y
-																											el coeficiente de
-																											drenaje. Para porcentajes mayores a 25% no es necesaria la interpolación
-																										</p>
+																										<p>En base a la celda sombreada se determina el coeficiente de drenaje de la subbase. Si el valor está dentro de un rango debería interpolarse, caso contrario (>25%)  debe tomarse el valor directamente. En este caso el coeficiente de drenaje es:</p>
 																									</td>
 																								</tr>
 																								<tr style="text-align : center;">
@@ -2031,6 +2029,8 @@
 										<td>
 											<input id="trf_tmda" name="trf_tmda" class="form-control form-control-sm integer required" type="text" placeholder="Ingrese valor (veh/día)">
 										</td>
+										<td></td>
+										<td></td>
 										<td rowspan="6" style="font-size:16px; width:140px">
 												
 										</td>
@@ -2046,7 +2046,7 @@
 										</td>
 										<td>
 											<input id="trf_tasa_cre" name="trf_tasa_cre" class="form-control form-control-sm numeric2 required" type="text" placeholder="Ingrese valor (%)" onkeyup="restrictionPorcent()"> </td>
-
+											
 									</tr>
 									<tr>
 										<td>Periodo de
@@ -2054,7 +2054,7 @@
 										</td>
 										<td>
 											<input id="trf_per_dis" name="trf_per_dis" class="form-control form-control-sm integer required" type="text" placeholder="Ingrese valor (Años)"> </td>
-
+											
 									</tr>
 									<tr>
 										<td>Direccionalidad
@@ -2063,6 +2063,71 @@
 										<td>
 											<input id="trf_direccionalidad" name="trf_direccionalidad" class="form-control form-control-sm integer required" type="text"
 												placeholder="Ingrese valor (%)" onkeyup="restrictionPorcent()"> </td>
+												<td>
+													&nbsp;&nbsp;&nbsp;
+												</td>
+												<td>
+													<span id="fa-question-circle " class="fa fa-question-circle helpData">
+
+														<span class="tip-D">
+															<section class="sct-D">
+
+  
+																	<p style="text-align:center; font-size: 12px; font-weight: bold; font-family: Arial">
+																			Factor de distribución en función del número de carriles en cada dirección de la vía
+																		</p>
+																		<hr>
+																<table id="tabla_direccion_rigid" style="font-size: 11px; font-family: Arial" border="1"  class="table-responsive table-borderless table-hover table-bordered table-condensed table-editable">
+																	<thead>
+																	<tr>
+																		<th style="width: 90px">
+																			Número de carriles en cada dirección
+																		</th>
+																		<th style="width: 90px">
+																			Porcentaje de ejes simples equivalente 18 kip en el carril de diseño
+																		</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>
+																			1
+																		</td>
+																		<td>
+																			100
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			2
+																		</td>
+																		<td>
+																			80 - 100
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			3
+																		</td>
+																		<td>
+																			60 - 80
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			4 o más
+																		</td>
+																		<td>
+																			50 - 75
+																		</td>
+																	</tr>
+																</tbody>
+																</table>
+															</section>
+
+														</span>
+													</span>
+												</td>
 
 									</tr>
 									
@@ -2078,6 +2143,7 @@
 												<option value="3">3</option>
 											</select>
 										</td>
+										
 
 									</tr>
 									<tr>
@@ -2097,6 +2163,7 @@
 												<option value="14">14</option>
 											</select>
 										</td>
+										
 									</tr>
 
 								</table>
@@ -2145,8 +2212,7 @@
 	<div id="ReporteCaratula_rigid" style="margin-bottom: 0px; display:none">
 		<div  style="width :auto; height :auto; position: absolute ; top:40%;">
 			<h2 style="text-align: center">Laboratorio virtual de pavimentos</h2>
-			<h2 style="text-align: center">Reporte de cálculos del software para la estimación de espesores de capas de pavimentos rígidos por el método AASHTO
-				1998
+			<h2 style="text-align: center">Reporte del cálculo de espesores de capas de pavimentos rígidos por el método AASHTO 1998
 			</h2>
 		</div>
 
@@ -2154,7 +2220,7 @@
 
     <div id="ReporteDeclaracion_rigid" style="margin-bottom: 0px; display:none">
         <p style="font-size: 18px; font-weight: bold">Renuncia</p>
-        <p style="font-size: 16px; text-align : justify;">El software de diseño de espesores de capas de pavimentos rígidos por el método AASHTO 1998 (Versión BETA). Se difunde bajo
+        <p style="font-size: 16px; text-align : justify;">El software de diseño de espesores de capas de pavimentos rígidos por el método AASHTO 1998 (Versión Beta), se difunde bajo
             el patrocinio del Grupo de Investigacion en Ingeniería Vial de la Titulación de Ingeniería Civil, en interés de mejorar el aprendizaje de diseño de pavimentos rígidos.
             La Universidad Técnica Particular de Loja no asume ninguna responsabilidad por su contenido o uso. Este documento
             no constituye un estándar, especificación o regulación, pues únicamente tiene fines académicos; así los nombres
@@ -2208,7 +2274,7 @@
 
             <tr>
                 <td style=" font-size: 16px">
-                    <p id="txtDiseñador_rigid"></p>
+                    <p id="txtDisenador_rigid"></p>
                 </td>
 
             </tr>
@@ -2597,13 +2663,14 @@
 
     <!-- TITULO PRINCIPAL -->
     <div id="titulo_principal_reporte_rigid" style="margin-bottom: 0px; display:none " class='page-break-after'>
-        <h2 style="text-align: center">Gráficas y procedimientos</h2>
+		<h2 style="text-align: center">Gráficas y procedimientos</h2>
+		<p style="text-align: justify">Para el cálculo el diseño del pavimento rígido por el método AASHTO 1998 se necesitan lo siguientes parámetros: número de ejes equivalentes (ESAL's); coeficiente de drenaje, estructural y módulo resiliente de la subbase; módulo resiliente de la subrasante y otros parámetros propios del método.</p>
 
         <h3 style="text-align: center" class="datosESALS">
             Cálculo de número de ejes equivalentes ESAL´S
         </h3>
-            <p style="text-align: justify" class="datosESALS"> La determinación del valor de ESAL´S está en función de parámetros como el tráfico medio diario anual (TMDA), porcentaje de direccionalidad (A), porcentaje de flota vehicular (B), tasa de crecimiento vehicular (r), periodo de diseño (N). Se estiman los factores de equivalencia (Fe) correspondiente a cada tipo de vehículo en función de la serviciabilidad final (pt), y un espesor asumido inicialmente, y usando la siguiente ecuación se obtienen los valores de ESAL´S.</p>
-            <p style="text-align: center" class="datosESALS">𝑁 = TMDA × A/100 × B/100 × 365 × ((1+r)^N)−1)/(ln(1+r)) × Fe</p>
+            <p style="text-align: justify" class="datosESALS"> La determinación del valor de ESAL´S está en función del tráfico medio diario anual (TMDA), porcentaje de direccionalidad (A), porcentaje de flota vehicular (B), tasa de crecimiento vehicular (r), periodo de diseño (N). En primer lugar, se estiman los factores de equivalencia de carga (Fe) correspondiente a cada tipo de vehículo. Estos factores se obtienen de tablas que proporciona el método, las cuales están en relación con la serviciabilidad final (pt) y un espesor de losa asumido inicialmente. Con la suma de los factores de equivalencia de carga se obtiene el factor camión de cada vehículo (Fc). En base a todos estos datos se calcula el número de ejes equivalentes de cada vehículo, de acuerdo a la siguiente expresión:</p>
+            <p style="text-align: center" class="datosESALS">𝑁 = TMDA × A/100 × B/100 × 365 × ((1+r)^N)−1)/(ln(1+r)) × Fc</p>
             
             <p style="text-align: center; font-size: 14px" class="datosESALS">Tabla 1. Valores de factor de equivalencia y ESAL´S obtenidos</p>
     </div>
@@ -2625,7 +2692,7 @@
         <p style="text-align: center; font-size: 18px">
             <strong>Coeficiente estructural y módulo resiliente de la subbase</strong>
         </p>
-        <p style="font-size: 16px; text-align: justify">Para la determinación de estos parámetros existen tres ábacos diferentes dependiendo del material, estos permiten obtener el coeficiente estructural y el módulo resiliente de la subbase.</p>
+        <p style="font-size: 16px; text-align: justify">Para la determinación de estos parámetros existen tres ábacos diferentes dependiendo del material, los cuales permiten obtener el coeficiente estructural y el módulo resiliente de la subbase.</p>
         <p id="print_PropiedadSubBase_rigid" style="font-size: 16px; text-align: justify"></p>
         <img style="width: 100%" id="copy_carta_subbase_rigid">
         <p style="font-size: 14px; text-align: center">Figura 1. Ábaco de diseño para parámetros de subbase</p>
@@ -2641,7 +2708,7 @@
             <strong>Módulo resiliente</strong>
         </p>
         <p style="text-align: justify; ">
-            Para determinar el módulo resiliente de la subrasante se emplea el siguiente procedimiento:
+            Para determinar el módulo resiliente de la subrasante se emplea la siguiente expresión:
         </p>
         <p id="MrEcuacion" style="text-align: center;"></p>
         <p id="MrProceso" style="text-align: center;"></p>
@@ -2669,11 +2736,27 @@
         <p style="text-align: center; font-size: 18px;">
             <strong>Factor de pérdida de soporte</strong>
         </p>
-        <p id="explicacionLS" style="text-align: justify;"> </p>
+       
         <p id="print_LS" style="font-size: 16px; text-align: justify;"></p>
         <img style="width: 100%;" id="copy_carta_LS">
         <p id="numFiguraLS" style="font-size: 14px; text-align: center;"></p>
-        <br>
+		<br>
+		<p style="text-align: center; font-size: 18px">
+            <strong>Módulo elástico del hormigón</strong>
+        </p>
+        <p style="text-align: justify; ">
+            Para determinar el módulo elástico del hormigón se emplea la siguiente expresión:
+        </p>
+        <p id="EcEcuacion" style="text-align: center;"></p>
+        <p id="EcProceso" style="text-align: center;"></p>
+		<br>
+		
+		<p style="text-align: center; font-size: 18px">
+            <strong>Coeficiente de tranferencia de carga</strong>
+        </p>
+        <p id="coef_TransferenciaJ" style="text-align: justify;"></p>
+        
+		<br>
     </div>
 
     <!-- TITULO CÁLCULO DE ESPESOR -->
@@ -2696,8 +2779,8 @@
 		<p style="text-align: justify;">El espesor de losa de hormigón, también pueden ser calculado usando la siguiente ecuación:
 		</p>
 		<img src="Images/FlotaVehiculos/ecuacionD.png" width="600px" height="100px" />
-		
-		<p style="text-align: justify;">Reemplazando todas las variables e iterando mediante el método NewtonRaphson se tiene:</p>
+		<p style="text-align: justify;">Después se debe colocar los valores de cada una de las variables así:</p>
+		<p id="explicaciónClcEspesor" style="text-align: justify;"></p>
 		<p id="txt_EspesorLosa_copy"></p>
 		<p id="txt_EspesorFinal_copy"></p>
     </div>

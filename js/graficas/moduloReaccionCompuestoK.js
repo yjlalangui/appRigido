@@ -1572,7 +1572,7 @@ function loadGraph4() {
                     type: 'linear',
                     position: 'bottom',
                     ticks: {
-                        min: -176.0679444,
+                        min: 0,
                         max: 1760.679444,
                         stepSize: 176.0679444,
                         display: false

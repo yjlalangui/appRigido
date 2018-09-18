@@ -156,6 +156,72 @@
 #tabla_pi_rigid {
     color: rgb(0, 0, 0);
 }
+
+.fa-question-circle .tip-D {
+    display: none;
+    position: absolute;
+    top: 5px;
+    /* - top padding */
+    left: 250px;
+    width: 190px;
+    margin-top: 189px;
+    margin-left: 50px;
+    /* width + left/right padding */
+    padding: 0px;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    z-index: 1;
+    box-shadow: 0px 0px 10px 4px #00457E;
+    opacity: 1;
+    border-radius: 5px;
+}
+
+
+.fa-question-circle .tip-D .sct-D {
+    border: 1px solid;
+    border-color: rgb(124, 124, 124);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+
+.fa-question-circle .tip-D:before {
+    display: flex;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 0;
+    height: 0;
+    margin-top: -9px ;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #00457E transparent transparent;
+    
+}
+
+.fa-question-circle:hover .tip-D {
+    display: flex;
+    left: -20px;
+    top: -280px;
+    opacity: 1;
+}
+#tabla_direccion_rigid td {
+    vertical-align: middle;
+    text-align: center;
+    padding: 0px;
+}
+
+#tabla_direccion_rigid th {
+    vertical-align: middle;
+    text-align: center;
+    padding: 0px;
+}
+
+#tabla_direccion_rigid {
+    color: rgb(0, 0, 0);
+}
 .fa-question-circle .tip-pf {
     display: none;
     position: absolute;
@@ -412,7 +478,7 @@
 
 #myModal_aviso_rigid_anclas .modal-body {
     height: 130px;
-    overflow-y: auto;
+    
     width: 450px;
 }
 

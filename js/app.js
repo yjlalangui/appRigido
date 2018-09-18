@@ -63,8 +63,8 @@ $(document).ready(function () {
             $('#panelPrimario').css('height', wh);
             $('#div-ingreso-datos').css('height', wh);
             $('#div-ingreso-datos').css('overflow-y', "scroll");
-            $('#pestañas').css('height', wh);
-            $('#pestañas').css('overflow-y', "scroll");
+            $('#pestanas').css('height', wh);
+            $('#pestanas').css('overflow-y', "scroll");
             $('.right-proceso-rigid').show();
             $('.helpData').hide();
             $('.btnRigidoEjemplo').hide();
@@ -95,8 +95,8 @@ $(document).ready(function () {
             $('#panelPrimario').css('height', "");
             $('#div-ingreso-datos').css('height', "");
             $('#div-ingreso-datos').css('overflow-y', "");
-            $('#pestañas').css('height', "");
-            $('#pestañas').css('overflow-y', "");
+            $('#pestanas').css('height', "");
+            $('#pestanas').css('overflow-y', "");
             $('.right-proceso-rigid').hide();
             $('.helpData').show();
             //$('.dis-col-9').css('height', "215px");
@@ -586,13 +586,13 @@ function perdidasorporte() {
 
 
 // Mostrar - Ocultar: ayuda Periodo de diseño
-function mostrarDiseño() {
+function mostrarDiseno() {
 
-    document.getElementById("ayudaDiseño").style.display = "block";
+    document.getElementById("ayudaDiseno").style.display = "block";
 }
 
-function ocultarDiseño() {
-    document.getElementById("ayudaDiseño").style.display = "none";
+function ocultarDiseno() {
+    document.getElementById("ayudaDiseno").style.display = "none";
 }
 
 // Mostrar - Ocultar: ayuda Direccionalidad

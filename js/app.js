@@ -443,15 +443,21 @@ $(document).ready(function () {
 
     });
 
-    // Para hacer zoom al gráfico de espesor//
-    $('#ampliar').click(function () {
-       
-    });
+    
+    
     copyk();
     finalk();
 
 });
 
+function restrictionDireccionalidad (){
+    var trf_direccionalidad = parseFloat($('#trf_direccionalidad').val());
+    if(50 > trf_direccionalidad) {
+        alert ("Valores entre 50% y 100%")
+        $('#trf_direccionalidad').val("")
+    }  
+
+}
 function restrictionPorcent () {
     var trf_tasa_cre = parseFloat($('#trf_tasa_cre').val());
     if(trf_tasa_cre > 100) {

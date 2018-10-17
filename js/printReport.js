@@ -21,7 +21,7 @@ function imprimir1() {
 	var recibetramo = document.getElementById('datoTramo').value;
 	document.getElementById('txtTramo_rigid').innerHTML = "<strong>" + "Tramo:  " + "</strong>" + recibetramo;
 
-	var recibeDisenador = document.getElementById('datoDiseñador').value;
+	var recibeDisenador = document.getElementById('datoDisenador').value;
 	document.getElementById('txtDisenador_rigid').innerHTML = "<strong>" + "Diseñador:  " + "</strong>" + recibeDisenador;
 
 	if((recibenombre === "")&&(recibeubicacion === "")&&(reciberuta === "")&&(recibetramo === "")&&(recibeDisenador === "")){
